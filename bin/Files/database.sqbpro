@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="database.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1871"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="materia_prima" custom_title="0" dock_id="4" table="4,13:mainmateria_prima"/><dock_state state="000000ff00000000fd0000000100000002000005ab00000398fc0100000003fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500350100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000012400ffffff000005ab0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="materia_prima" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="70"/><column index="2" value="183"/><column index="3" value="79"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">DROP TABLE produtos;
+                 
+CREATE TABLE produtos (
+pr_codigo INTEGER PRIMARY KEY,
+pr_nome TEXT NOT NULL,
+pr_un_palete INTEGER DEFAULT(0),
+pr_estoque INTEGER DEFAULT(0),
+ativo INTEGER DEFAULT(1)
+);
+
+
+DROP TABLE materia_prima;
+                
+CREATE TABLE materia_prima(
+mp_codigo INTEGER PRIMARY KEY,
+mp_nome TEXT NOT NULL,
+mp_estoque INTEGER DEFAULT(0)
+);
+
+DROP TABLE produto_materia_prima  
+				
+CREATE TABLE produto_materia_prima (
+pmp_pr_codigo INTEGER,
+pmp_mp_codigo INTEGER,  
+pmp_qtd REAL,
+pr_estoque INTEGER,
+PRIMARY KEY(pmp_pr_codigo, pmp_mp_codigo),
+FOREIGN KEY(pmp_pr_codigo) REFERENCES produtos(pr_codigo),
+FOREIGN KEY(pmp_mp_codigo) REFERENCES materia_prima(mp_codigo)
+);
+
+DROP TABLE producao;
+
+CREATE TABLE producao (
+pd_pr_codigo INTEGER UNIQUE,
+pd_data TEXT,
+pd_codigo INTEGER PRIMARY KEY AUTOINCREMENT,
+pd_qtd_produzida REAL,
+FOREIGN KEY(pd_pr_codigo) REFERENCES produtos(pr_codigo)
+);
+
+DROP TABLE producao_log;
+
+CREATE TABLE producao_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+	log_pd_codigo INTEGER,
+    log_pd_data TEXT,
+    log_pd_qtd REAL,
+    data_atualizacao TEXT DEFAULT (datetime('now', 'localtime')),
+	FOREIGN KEY(log_pd_codigo) REFERENCES produtos(pr_codigo)
+);
+
+
+SELECT * FROM produtos
+SELECT * FROM producao
+SELECT * FROM producao_log
+SELECT * FROM produto_materia_prima
+
+INSERT INTO produtos (pr_codigo, pr_nome) VALUES (10970, &quot;MOURAO T CONCRETO CURVO 2,80H T10XB15X4,5CM - 2,8&quot;);
+INSERT INTO producao (pd_pr_codigo, pd_data, pd_codigo, pd_qtd_produzida)VALUES (10136, &quot;22/09/2024&quot;, 1, 200)
+INSERT INTO producao (pd_pr_codigo, pd_data, pd_codigo, pd_qtd_produzida)VALUES (10137, &quot;22/09/2024&quot;, 2, 200)
+DELETE FROM produtos WHERE ativo=0;
+
+
+SELECT
+	desc, Ddaata 
+FROM
+	produtos
+	LEFT JOIN producao on producao.produto = produto.produto and @data = producao.dat
+WHERE
+	produtos.produto = @produto
+	
+	
+SELECT 
+	pl.log_pd_data, 
+	SUM(log_pd_qtd) AS total_produzido 
+FROM 
+	producao_log pl 
+LEFT JOIN 
+	produtos pr ON pl.log_pd_codigo = pr.pr_codigo 
+WHERE pr.pr_nome LIKE '%BLOCO%'
+GROUP BY 
+	pl.log_pd_data 
+ORDER BY 
+	pl.log_pd_data
+	
+--------------------
+
+SELECT 
+    pl.log_pd_data, 
+    SUM(log_pd_qtd) AS total_produzido 
+FROM 
+    producao_log pl 
+LEFT JOIN 
+    produtos pr ON pl.log_pd_codigo = pr.pr_codigo 
+WHERE 
+    pr.pr_nome LIKE '%BLOCO%'
+	
+GROUP BY 
+    pl.log_pd_data 
+ORDER BY 
+    STRFTIME('%Y-%m-%d', SUBSTR(pl.log_pd_data, 7, 4) || '-' || SUBSTR(pl.log_pd_data, 4, 2) || '-' || SUBSTR(pl.log_pd_data, 1, 2));
+
+--------------------------
+SELECT 
+	pl.log_pd_data, 
+	SUM(log_pd_qtd) AS total_produzido 
+FROM 
+	producao_log pl 
+LEFT JOIN 
+	produtos pr ON pl.log_pd_codigo = pr.pr_codigo 
+	
+WHERE pr.pr_nome LIKE '%BLOCO%'
+AND STRFTIME('%m-%Y', SUBSTR(pl.log_pd_data, 7, 4) || '-' || SUBSTR(pl.log_pd_data, 4, 2) || '-' || SUBSTR(pl.log_pd_data, 1, 2)) = STRFTIME('%m-%Y', 'now')
+
+GROUP BY 
+	pl.log_pd_data 
+ORDER BY 
+	pl.log_pd_data;
+	
+-----------------
+
+SELECT 
+    pl.log_pd_data, 
+    SUM(log_pd_qtd) AS total_produzido 
+FROM 
+    producao_log pl 
+LEFT JOIN 
+    produtos pr ON pl.log_pd_codigo = pr.pr_codigo 
+WHERE 
+    pr.pr_nome LIKE '%BLOCO%' 
+    AND STRFTIME('%m-%Y', SUBSTR(pl.log_pd_data, 7, 4) || '-' || SUBSTR(pl.log_pd_data, 4, 2) || '-' || SUBSTR(pl.log_pd_data, 1, 2)) = STRFTIME('%m-%Y', 'now')
+GROUP BY 
+    pl.log_pd_data 
+ORDER BY 
+    STRFTIME('%Y-%m-%d', SUBSTR(pl.log_pd_data, 7, 4) || '-' || SUBSTR(pl.log_pd_data, 4, 2) || '-' || SUBSTR(pl.log_pd_data, 1, 2));
+----------------------------------------------------------------------
+SELECT 
+    pl.log_pd_data, 
+    SUM(log_pd_qtd) AS total_produzido,
+    -- Alias para armazenar a data formatada como MM-YYYY (para o filtro)
+    STRFTIME('%m-%Y', 
+             SUBSTR(pl.log_pd_data, 7, 4) || '-' || 
+             SUBSTR(pl.log_pd_data, 4, 2) || '-' || 
+             SUBSTR(pl.log_pd_data, 1, 2)) AS data_formatada_mes_ano,
+    -- Alias para armazenar a data formatada como YYYY-MM-DD (para ordenação)
+    STRFTIME('%Y-%m-%d', 
+             SUBSTR(pl.log_pd_data, 7, 4) || '-' || 
+             SUBSTR(pl.log_pd_data, 4, 2) || '-' || 
+             SUBSTR(pl.log_pd_data, 1, 2)) AS data_formatada_ano_mes_dia
+FROM 
+    producao_log pl
+LEFT JOIN 
+    produtos pr ON pl.log_pd_codigo = pr.pr_codigo
+WHERE 
+    pr.pr_nome LIKE '%BLOCO%'
+    -- Filtrando pelo mês e ano atuais usando o alias 'data_formatada_mes_ano'
+	AND data_formatada_mes_ano = STRFTIME('%m-%Y', 'now')
+GROUP BY 
+    pl.log_pd_data
+-- Ordenando pelo alias 'data_formatada_ano_mes_dia'
+ORDER BY 
+	data_formatada_ano_mes_dia;
+	
+-----
+
+
+SELECT 
+pd_qtd_produzida,
+pd_data
+FROM 
+	producao 
+ORDER BY pd_qtd_produzida ASC;
+
+	
+LEFT JOIN -&gt; a tabela principal continua trazendo valores, a tabela de relação volta tudo null, caso não exista relação ou retorna os valores relacionados
+
+produto 1  
+produto 2</sql><current_tab id="0"/></tab_sql></sqlb_project>
