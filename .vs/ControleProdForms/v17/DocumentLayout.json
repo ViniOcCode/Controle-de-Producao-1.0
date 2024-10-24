@@ -3,23 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\models\\capamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:models\\capamodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\capaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\capaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\capaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\capaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\menuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\menuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\produtosview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\menuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\menuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\matview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\matview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\matview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -39,6 +51,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "CapaModel.cs",
+              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Models\\CapaModel.cs",
+              "RelativeDocumentMoniker": "Models\\CapaModel.cs",
+              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Models\\CapaModel.cs",
+              "RelativeToolTip": "Models\\CapaModel.cs",
+              "ViewState": "AQIAAGgAAAAAAAAAAAAewJUAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T00:14:10.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CapaView.cs",
+              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\CapaView.cs",
+              "RelativeDocumentMoniker": "View\\CapaView.cs",
+              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\CapaView.cs",
+              "RelativeToolTip": "View\\CapaView.cs",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAQwIQAAABdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T00:11:52.246Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CapaView.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\CapaView.cs",
+              "RelativeDocumentMoniker": "View\\CapaView.cs",
+              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\CapaView.cs [Design]",
+              "RelativeToolTip": "View\\CapaView.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-24T00:11:50.428Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "ProdutosView.cs",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\ProdutosView.cs",
               "RelativeDocumentMoniker": "View\\ProdutosView.cs",
@@ -51,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "MenuView.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\MenuView.cs",
               "RelativeDocumentMoniker": "View\\MenuView.cs",
@@ -63,7 +113,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ProdutosView.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\ProdutosView.cs",
               "RelativeDocumentMoniker": "View\\ProdutosView.cs",
@@ -75,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ProducaoView.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\ProducaoView.cs",
               "RelativeDocumentMoniker": "View\\ProducaoView.cs",
@@ -87,15 +137,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "MatView.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\MatView.cs",
               "RelativeDocumentMoniker": "View\\MatView.cs",
               "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\MatView.cs [Design]",
               "RelativeToolTip": "View\\MatView.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T23:15:39.125Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-10-23T23:15:39.125Z"
             }
           ]
         }
