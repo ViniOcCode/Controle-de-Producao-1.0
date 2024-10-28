@@ -34,6 +34,25 @@ namespace ControleProdForms._Repos
             }
         }
 
+        public void AddMateriaLog(MatModel materia)
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            using (var command = new SQLiteCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"INSERT INTO
+                                            materia_primalog (mp_codigolog, mp_estoquelog)
+                                        SELECT @codigo, @estoque
+                                        WHERE NOT EXISTS (SELECT 1 FROM materia_primalog
+                                        WHERE mp_codigolog=@codigo AND mp_estoquelog=@estoque
+                                        )";
+                command.Parameters.Add("@codigo", DbType.Int32).Value = materia.Codigo;
+                command.Parameters.Add("@estoque", DbType.Double).Value = materia.Estoque;
+                command.ExecuteNonQuery();
+            }
+        }
+
         public void DelMateria(int codigo)
         {
             using (var connection = new SQLiteConnection(connectionString))

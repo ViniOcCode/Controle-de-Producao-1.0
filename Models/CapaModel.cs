@@ -29,6 +29,7 @@ namespace ControleProdForms.Models
         public int NumProducao { get; private set; }
         public int TotalProducao{ get; private set; }
         public List<KeyValuePair<string, int>> TopProdutos { get; private set; }
+        public List<KeyValuePair<string, int>> TopMateriaPrima { get; private set; }
         public List<KeyValuePair<string, int>> UnderstockList { get; private set; }
         public List<TempoData> ProducaoLista { get; private set; }
 
@@ -39,7 +40,7 @@ namespace ControleProdForms.Models
         }
 
         // Private methods
-        private void GetNumberItems()
+        private void Numeros()
         {
             using (var connection = new SQLiteConnection(connectionString))
             using (var command = new SQLiteCommand())
@@ -61,13 +62,13 @@ namespace ControleProdForms.Models
                 // Get Total Number of Orders
                 command.CommandText = @"select count(id) from producao_log
                                         where log_pd_data between  @fromDate and @toDate";
-                command.Parameters.Add("@fromDate", DbType.String).Value = startDate;
-                command.Parameters.Add("@toDate", DbType.String).Value = endDate;
+                command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
+                command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
                 TotalProducao = Convert.ToInt32((long)command.ExecuteScalar());
             }
         }
 
-        private void GetProductAnalisys()
+        private void AnaliseProduto()
         {
             TopProdutos = new List<KeyValuePair<string, int>>();
             UnderstockList = new List<KeyValuePair<string, int>>();
@@ -84,8 +85,49 @@ namespace ControleProdForms.Models
                                                 group by P.pr_nome
                                                 order by Q desc 
                                                 LIMIT 5";
-                command.Parameters.Add("@fromDate", DbType.String).Value = startDate;
-                command.Parameters.Add("@toDate", DbType.String).Value = endDate;
+                command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
+                command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    TopProdutos.Add(
+                        new KeyValuePair<string, int>(reader[0].ToString(), Convert.ToInt32(reader[1])));
+                }
+                reader.Close();
+
+                // Get Understock
+                command.CommandText = @"select pr_nome, pr_estoque
+                                                from produtos
+                                                where pr_estoque <= 6 and ativo = 1";
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    UnderstockList.Add(
+                        new KeyValuePair<string, int>(reader[0].ToString(), Convert.ToInt32(reader[1])));
+                }
+                reader.Close();
+            }
+        }
+
+        private void AnaliseMateriaPrima()
+        {
+            TopProdutos = new List<KeyValuePair<string, int>>();
+            UnderstockList = new List<KeyValuePair<string, int>>();
+            using (var connection = new SQLiteConnection(connectionString))
+            using (var command = new SQLiteCommand())
+            {
+                connection.Open();
+                SQLiteDataReader reader;
+                command.Connection = connection;
+                command.CommandText = @"select P.pr_nome, sum(producao_log.log_pd_qtd) as Q
+                                                from producao_log
+                                                inner join produtos P on P.pr_codigo = producao_log.log_pd_codigo
+                                                where log_pd_data between @fromDate and @toDate
+                                                group by P.pr_nome
+                                                order by Q desc 
+                                                LIMIT 5";
+                command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
+                command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -109,7 +151,7 @@ namespace ControleProdForms.Models
         }
 
 
-        private void GetOrderAnalisys()
+        private void AnalisePedido()
         {
             ProducaoLista = new List<TempoData>();
 
@@ -122,8 +164,9 @@ namespace ControleProdForms.Models
                                                     from producao_log
                                                     where log_pd_data between @fromDate and @toDate
                                                     group by log_pd_data";
-                command.Parameters.Add("@fromDate", DbType.String).Value = startDate;
-                command.Parameters.Add("@toDate", DbType.String).Value = endDate;
+                command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
+                command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
+
                 var reader = command.ExecuteReader();
                 var resultTable = new List<KeyValuePair<DateTime, decimal>>();
                 while (reader.Read())
@@ -155,7 +198,7 @@ namespace ControleProdForms.Models
                                         into order
                                         select new TempoData
                                         {
-                                            Data = "Week " + order.Key.ToString(),
+                                            Data = "Semana " + order.Key.ToString(),
                                             Total = order.Sum(amount => amount.Value)
                                         }).ToList();
                 }
@@ -200,9 +243,9 @@ namespace ControleProdForms.Models
                 this.endDate = endDate;
                 this.numberDays = (endDate - startDate).Days;
 
-                GetNumberItems();
-                GetProductAnalisys();
-                GetOrderAnalisys();
+                Numeros();
+                AnaliseProduto();
+                AnalisePedido();
                 Console.WriteLine("Refreshed data: {0} - {1}", startDate.ToString(), endDate.ToString());
                 return true;
             }

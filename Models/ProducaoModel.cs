@@ -11,16 +11,20 @@ namespace ControleProdForms.Models
     public class ProducaoModel
     {
         //Fields
+        private int id;
         private string codigo;
         private string data;
         private string quantidade;
         private string nome;
 
         //Propriedades - Validação
+
         [DisplayName("Código")]
         [Required(ErrorMessage = "O campo Código é obrigatório.")]
         [StringLength(5, MinimumLength = 5, ErrorMessage = "O código deve ter no mínimo 5 digitos")] //exemplo: 10140 e não 1140
+        [RegularExpression("([0-9]+)", ErrorMessage = "Coloque um número válido")]
         public string Codigo { get => codigo; set => codigo = value; }
+
         public string Nome { get => nome; set => nome = value; }
         [DisplayName("Data")]
         [Required(ErrorMessage = "O campo Data é obrigatório.")]
@@ -28,6 +32,10 @@ namespace ControleProdForms.Models
 
         [DisplayName("Quantidade")]
         [Required(ErrorMessage = "O campo Quantidade é obrigatório.")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "Coloque um número válido")]
         public string Quantidade { get => quantidade; set => quantidade = value; }
+
+        [DisplayName("Ordem De Produção")]
+        public int Id { get => id; set => id = value; }
     }
 }

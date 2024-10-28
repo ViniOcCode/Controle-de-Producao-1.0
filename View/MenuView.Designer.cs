@@ -53,7 +53,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 672);
+            this.panel1.Size = new System.Drawing.Size(200, 741);
             this.panel1.TabIndex = 0;
             // 
             // lbMenu
@@ -161,17 +161,18 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(695, 60);
+            this.panel3.Size = new System.Drawing.Size(1154, 60);
             this.panel3.TabIndex = 1;
             // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 672);
+            this.ClientSize = new System.Drawing.Size(1354, 741);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
+            this.MinimumSize = new System.Drawing.Size(1370, 780);
             this.Name = "MenuView";
             this.Text = "MenuView";
             this.panel1.ResumeLayout(false);

@@ -25,7 +25,7 @@ namespace ControleProdForms._Repos
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"INSERT INTO 
-                                        producao (pd_pr_codigo, pd_data, pd_qtd_produzida) VALUES (@codigo, @data, @quantidade)";
+                                        producao (pd_codigo, pd_pr_codigo, pd_data, pd_qtd_produzida) VALUES ((SELECT IFNULL(MAX(pd_codigo), 0) + 1 FROM producao), @codigo, @data, @quantidade)";
                 command.Parameters.Add("@codigo", DbType.Int32).Value = produto.Codigo;
                 command.Parameters.Add("@data", DbType.String).Value = produto.Data;
                 command.Parameters.Add("@quantidade", DbType.Double).Value = produto.Quantidade;
@@ -58,7 +58,7 @@ namespace ControleProdForms._Repos
                 command.Connection = connection;
                 command.CommandText = @"DELETE 
                                         FROM producao
-                                        WHERE pd_pr_codigo=@codigo";
+                                        WHERE pd_codigo=@codigo";
                 command.Parameters.Add("@codigo", DbType.Int32).Value = codigo;
                 command.ExecuteNonQuery();
             }
@@ -121,7 +121,8 @@ namespace ControleProdForms._Repos
                                             p.pd_pr_codigo,
                                             pr.pr_nome,
                                             p.pd_data,
-                                            p.pd_qtd_produzida
+                                            p.pd_qtd_produzida,
+                                            p.pd_codigo
                                         FROM produtos pr     
                                         INNER JOIN 
                                             producao p ON p.pd_pr_codigo = pr.pr_codigo 
@@ -137,6 +138,8 @@ namespace ControleProdForms._Repos
                         producao.Data = reader[2].ToString();
                         producao.Quantidade = reader[3].ToString();
                         pdLista.Add(producao);
+
+                        producao.Id = Convert.ToInt32(reader[4]);
                     }
                 }
             }

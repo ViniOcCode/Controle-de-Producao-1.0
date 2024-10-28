@@ -51,6 +51,7 @@ namespace ControleProdForms.View
                 AdicionarEvento?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabMenu);
                 tabControl1.TabPages.Add(tabCadastro);
+                lblData.Text = dtpData.Text;
                 tabCadastro.Text = "Adicionar Nova Produção";
             };
             btnEdit.Click += delegate
@@ -60,6 +61,7 @@ namespace ControleProdForms.View
                 EditarEvento?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabMenu);
                 tabControl1.TabPages.Add(tabCadastro);
+                lblData.Text = dtpData.Text;
                 tabCadastro.Text = "Editar Produção";
             };
             btnSave.Click += delegate
@@ -111,8 +113,8 @@ namespace ControleProdForms.View
         }
         public string PdData
         {
-            get { return date.Text; }
-            set { date.Text = value; }
+            get { return dtpData.Text; }
+            set { dtpData.Text = value; }
         }
         public string PdQuantidade
         {
@@ -203,6 +205,22 @@ namespace ControleProdForms.View
                 instance.BringToFront();
             }
             return instance;
+        }
+
+        private void lblData_Click(object sender, EventArgs e)
+        {
+            dtpData.Select();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void ProducaoView_Load(object sender, EventArgs e)
+        {
+            lblData.Text = dtpData.Text;
+        }
+
+        private void dtpData_ValueChanged(object sender, EventArgs e)
+        {
+            lblData.Text = dtpData.Text;
         }
     }
 }

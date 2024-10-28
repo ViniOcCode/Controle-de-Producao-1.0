@@ -99,7 +99,7 @@ namespace ControleProdForms.Presenters
             try
             {
                 var producao = (ProducaoModel)gridProducao.Current;
-                repo.DelProducao(Convert.ToInt32(producao.Codigo));
+                repo.DelProducao(Convert.ToInt32(producao.Id));
                 view.MensagemSucesso = true;
                 view.Mensagem = "Produto Deletado com Sucesso!";
                 AllProducao();
