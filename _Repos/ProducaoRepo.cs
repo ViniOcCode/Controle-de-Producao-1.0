@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ControleProdForms.Models;
+using System.Drawing;
 
 namespace ControleProdForms._Repos
 {
@@ -184,6 +185,97 @@ namespace ControleProdForms._Repos
             }
 
             return pdLista;
+        }
+        public IEnumerable<MatProdModel> GetAllMatProd()
+        {
+            var matProdList = new List<MatProdModel>();
+            using (var connection = new SQLiteConnection(connectionString))
+            using (var command = new SQLiteCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+                command.CommandText = @"SELECT m.mp_codigo,
+                                               m.mp_nome,
+                                               m.mp_estoque
+                                               FROM materia_prima m
+                                               "; // Ajuste a consulta conforme necessário
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var matProd = new MatProdModel
+                        {
+                            CodigoMp = Convert.ToInt32(reader[0]),
+                            NomeMp = reader[1].ToString(),
+                            EstoqueMp =Convert.ToInt32(reader[2])
+                        };
+                        matProdList.Add(matProd);
+                    }
+                }
+            }
+            return matProdList;
+        }
+
+        public void AddMatProd(List<MatProdModel> matProdList)
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            using (var command = new SQLiteCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+
+                foreach (var matProd in matProdList)
+                {
+                    command.CommandText = @"INSERT INTO 
+                                    producao_materiaprima 
+                                    (pmp_pr_codigo,
+                                    pmp_mp_codigo, 
+                                    pmp_qtd) VALUES (@codigo, @codigoMp, @quantidade)";
+                    command.Parameters.Clear();
+                    command.Parameters.Add("@codigo", DbType.Int32).Value = matProd.CodigoPd;
+                    command.Parameters.Add("@codigoMp", DbType.Int32).Value = matProd.CodigoMp;
+                    command.Parameters.Add("@quantidade", DbType.Double).Value = matProd.QuantidadeMp;
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public IEnumerable<MatProdModel> GetMatProd(int matProdId)
+        {
+            var mpLista = new List<MatProdModel>();
+            int Id = int.TryParse(matProdId.ToString(), out _) ? Convert.ToInt32(matProdId) : 0;
+
+            using (var connection = new SQLiteConnection(connectionString))
+            using (var command = new SQLiteCommand())
+            {
+                connection.Open();  
+                command.Connection = connection;
+                command.CommandText = @"SELECT
+                                            m.mp_codigo,            
+                                            m.mp_estoque,
+                                            m.mp_nome,
+                                            p.pmp_qtd
+                                        FROM producao_materiaprima p
+                                        LEFT JOIN materia_prima m ON p.pmp_mp_codigo = m.mp_codigo
+                                        WHERE 
+                                             pmp_pr_codigo=@codigo
+                                        ";
+                command.Parameters.Add("@codigo", DbType.Int32).Value = Id;
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        var matProd = new MatProdModel();
+                        matProd.CodigoMp = Convert.ToInt32(reader[0]);
+                        matProd.EstoqueMp = Convert.ToInt32(reader[1]);
+                        matProd.NomeMp = reader[2].ToString();
+                        matProd.QuantidadeMp = Convert.ToInt32(reader[3]);
+                        mpLista.Add(matProd);
+                    }
+                }
+            }
+
+            return mpLista;
         }
     }
 }

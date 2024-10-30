@@ -49,6 +49,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabCadastro = new System.Windows.Forms.TabPage();
+            this.mpLista = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -76,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.panel3.SuspendLayout();
             this.tabCadastro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mpLista)).BeginInit();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -352,6 +354,7 @@
             // tabCadastro
             // 
             this.tabCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(12)))), ((int)(((byte)(28)))));
+            this.tabCadastro.Controls.Add(this.mpLista);
             this.tabCadastro.Controls.Add(this.label4);
             this.tabCadastro.Controls.Add(this.label7);
             this.tabCadastro.Controls.Add(this.panel8);
@@ -363,6 +366,17 @@
             this.tabCadastro.Size = new System.Drawing.Size(682, 622);
             this.tabCadastro.TabIndex = 1;
             this.tabCadastro.Text = "Cadastro";
+            // 
+            // mpLista
+            // 
+            this.mpLista.AllowUserToAddRows = false;
+            this.mpLista.AllowUserToDeleteRows = false;
+            this.mpLista.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mpLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mpLista.Location = new System.Drawing.Point(102, 388);
+            this.mpLista.Name = "mpLista";
+            this.mpLista.Size = new System.Drawing.Size(483, 150);
+            this.mpLista.TabIndex = 2;
             // 
             // label4
             // 
@@ -616,6 +630,7 @@
             this.panel3.PerformLayout();
             this.tabCadastro.ResumeLayout(false);
             this.tabCadastro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mpLista)).EndInit();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
@@ -666,5 +681,6 @@
         private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.Button btnPesquisa;
         private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.DataGridView mpLista;
     }
 }

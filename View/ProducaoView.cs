@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleProdForms.Presenters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,6 +25,7 @@ namespace ControleProdForms.View
             tabControl1.TabPages.Remove(tabCadastro);
             btnSair.Click += delegate { this.Close(); };
             this.Shown += ProducaoView_Shown;
+
         }
         private void ProducaoView_Shown(object sender, EventArgs e)
         {
@@ -147,6 +149,12 @@ namespace ControleProdForms.View
             get { return dgLista; }
         }
 
+        public DataGridView DataGridMp
+        {
+            get { return mpLista; }
+            set { mpLista = value;}
+        }
+
         public event EventHandler PesquisaEvento;
         public event EventHandler AdicionarEvento;
         public event EventHandler EditarEvento;
@@ -159,6 +167,11 @@ namespace ControleProdForms.View
         public void SetGridProducao(BindingSource pdLista)
         {
             DataGrid.DataSource = pdLista;
+        }
+
+        public void SetGridMatProd(BindingSource matProdLista)
+        {
+           mpLista.DataSource = matProdLista;
         }
 
         private void FormatGridView()

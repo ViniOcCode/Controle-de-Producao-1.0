@@ -3,32 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\models\\producaomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:models\\producaomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\presenters\\producaopresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:presenters\\producaopresenter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\models\\matprodmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:models\\matprodmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\_repos\\producaorepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:_repos\\producaorepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\matview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\matview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\producaoview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|c:\\users\\vinicius\\source\\repos\\controleprodforms\\view\\capaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\models\\iproducaorepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:models\\iproducaorepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\capaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\capaview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\menuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\menuview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\view\\matview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{392E58F1-1EB9-473D-B1AC-95E4F554BD1C}|ControleProdForms.csproj|solutionrelative:view\\matview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +42,67 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1318452576:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IProducaoRepo.cs",
+              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Models\\IProducaoRepo.cs",
+              "RelativeDocumentMoniker": "Models\\IProducaoRepo.cs",
+              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Models\\IProducaoRepo.cs",
+              "RelativeToolTip": "Models\\IProducaoRepo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAA8AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T19:09:35.514Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ProducaoView.cs",
+              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\ProducaoView.cs",
+              "RelativeDocumentMoniker": "View\\ProducaoView.cs",
+              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\ProducaoView.cs",
+              "RelativeToolTip": "View\\ProducaoView.cs",
+              "ViewState": "AQIAAIoAAAAAAAAAAAAkwJQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T21:00:26.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProducaoPresenter.cs",
+              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Presenters\\ProducaoPresenter.cs",
+              "RelativeDocumentMoniker": "Presenters\\ProducaoPresenter.cs",
+              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Presenters\\ProducaoPresenter.cs",
+              "RelativeToolTip": "Presenters\\ProducaoPresenter.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAIwFwAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:53:20.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MatProdModel.cs",
+              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Models\\MatProdModel.cs",
+              "RelativeDocumentMoniker": "Models\\MatProdModel.cs",
+              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Models\\MatProdModel.cs",
+              "RelativeToolTip": "Models\\MatProdModel.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBEAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:46:30.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "ProducaoView.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\ProducaoView.cs",
               "RelativeDocumentMoniker": "View\\ProducaoView.cs",
@@ -54,50 +114,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProducaoView.cs",
-              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\ProducaoView.cs",
-              "RelativeDocumentMoniker": "View\\ProducaoView.cs",
-              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\ProducaoView.cs",
-              "RelativeToolTip": "View\\ProducaoView.cs",
-              "ViewState": "AQIAAJ8AAAAAAAAAAAArwLsAAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T20:12:12.044Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProducaoModel.cs",
-              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Models\\ProducaoModel.cs",
-              "RelativeDocumentMoniker": "Models\\ProducaoModel.cs",
-              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\Models\\ProducaoModel.cs",
-              "RelativeToolTip": "Models\\ProducaoModel.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwCYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-28T20:01:12.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
               "Title": "ProducaoRepo.cs",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\_Repos\\ProducaoRepo.cs",
               "RelativeDocumentMoniker": "_Repos\\ProducaoRepo.cs",
               "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\_Repos\\ProducaoRepo.cs",
               "RelativeToolTip": "_Repos\\ProducaoRepo.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAIwIcAAAAxAAAA",
+              "ViewState": "AQIAAL0AAAAAAAAAAAAYwPIAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-28T19:51:48.315Z",
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:1318452576:0:{bf84ea66-d821-4dba-b1b1-2777d8574775}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "MatView.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\MatView.cs",
               "RelativeDocumentMoniker": "View\\MatView.cs",
@@ -110,19 +140,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "MenuView.cs",
-              "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\MenuView.cs",
-              "RelativeDocumentMoniker": "View\\MenuView.cs",
-              "ToolTip": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\MenuView.cs",
-              "RelativeToolTip": "View\\MenuView.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAawBwAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T02:59:47.311Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "CapaView.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Vinicius\\source\\repos\\ControleProdForms\\View\\CapaView.cs",
               "RelativeDocumentMoniker": "View\\CapaView.cs",

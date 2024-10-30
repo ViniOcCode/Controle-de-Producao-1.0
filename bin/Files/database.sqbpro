@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="database.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1561"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="produto_materiaprima" custom_title="0" dock_id="4" table="4,20:mainproduto_materiaprima"/><dock_state state="000000ff00000000fd0000000100000002000005ab00000398fc0100000004fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500350100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500370100000000000005ab0000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000000005ab0000012400ffffff000005ab0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="materia_prima" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="70"/><column index="2" value="183"/><column index="3" value="79"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="produto_materiaprima" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="96"/><column index="2" value="102"/><column index="3" value="87"/><column index="4" value="59"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="produtos" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="64"/><column index="2" value="300"/><column index="3" value="84"/><column index="4" value="73"/><column index="5" value="37"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">DROP TABLE produtos;
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="database.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2002"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="materia_prima" custom_title="0" dock_id="4" table="4,13:mainmateria_prima"/><dock_state state="000000ff00000000fd0000000100000002000005ab00000398fc0100000004fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500350100000000ffffffff0000000000000000fb000000160064006f0063006b00420072006f00770073006500370100000000000005ab0000000000000000fb000000160064006f0063006b00420072006f00770073006500340100000000ffffffff0000012400ffffff000005ab0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="materia_prima" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="70"/><column index="2" value="183"/><column index="3" value="79"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">	DROP TABLE produtos;
                  
 CREATE TABLE produtos (
 pr_codigo INTEGER PRIMARY KEY,
@@ -22,27 +22,27 @@ DROP TABLE materia_primalog
 CREATE TABLE materia_primalog
 (
 id INTEGER PRIMARY KEY AUTOINCREMENT,
-mp_codigolog INTEGER,
-mp_estoquelog INTEGER,
+pmp_codigolog INTEGER,
 data_atualizacao TEXT DEFAULT (datetime('now', 'localtime')),
 FOREIGN KEY(mp_codigolog) REFERENCES materia_prima(mp_codigo)
 );
 
 
-DROP TABLE produto_materiaprima
+DROP TABLE producao_materiaprima
 				
-CREATE TABLE produto_materiaprima (
+CREATE TABLE producao_materiaprima (
 pmp_pr_codigo INTEGER,
-pmp_mp_codigo INTEGER,
-pmp_qtd_fixa REAL,
-pmp_qtd REAL,
+pmp_id INTEGER PRIMARY KEY AUTOINCREMENT,
+pmp_mp_codigo INTEGER,
+pmp_qtd REAL,
+pmp_data TEXT DEFAULT (datetime('now')),
 FOREIGN KEY(pmp_pr_codigo) REFERENCES produtos(pr_codigo),
 FOREIGN KEY(pmp_mp_codigo) REFERENCES materia_prima(mp_codigo)
 );
 
 DROP TABLE producao;
 
-CREATE TABLE producao (
+CREATE TABLE producao (
 pd_codigo INTEGER PRIMARY KEY AUTOINCREMENT,
 pd_pr_codigo INTEGER UNIQUE,
 pd_data TEXT NOT NULL,
@@ -63,15 +63,15 @@ CREATE TABLE producao_log (
 
 SELECT * FROM produtos
 SELECT * FROM producao
-SELECT * FROM materia_primalog
+SELECT * FROM materia_prima
 SELECT * FROM producao_log
-SELECT * FROM produto_materia_prima
-
-INSERT INTO produto_materiaprima (pmp_pr_codigo, pmp_mp_codigo, pmp_qtd_fixa)
-SELECT p.pr_codigo, mp.mp_codigo, 100
-FROM Produtos p
-JOIN materia_prima mp ON mp.mp_nome LIKE '%Areia Grossa%'
-WHERE p.pr_nome LIKE '%BLOCO%';
+SELECT * FROM producao_materiaprima
+
+INSERT INTO produto_materiaprima (pmp_pr_codigo, pmp_mp_codigo, pmp_qtd_fixa)
+SELECT p.pr_codigo, mp.mp_codigo, 100
+FROM Produtos p
+JOIN materia_prima mp ON mp.mp_nome LIKE '%Areia Grossa%'
+WHERE p.pr_nome LIKE '%BLOCO%';
 
 
 INSERT INTO produtos (pr_codigo, pr_nome) VALUES (10970, &quot;MOURAO T CONCRETO CURVO 2,80H T10XB15X4,5CM - 2,8&quot;);

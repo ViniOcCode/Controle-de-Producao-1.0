@@ -62,6 +62,7 @@
     <Compile Include="Models\IProducaoRepo.cs" />
     <Compile Include="Models\IProdutosRepo.cs" />
     <Compile Include="Models\MatModel.cs" />
+    <Compile Include="Models\MatProdModel.cs" />
     <Compile Include="Models\ProducaoModel.cs" />
     <Compile Include="Models\ProdutosModel.cs" />
     <Compile Include="Presenters\Common\ModelDataValidation.cs" />

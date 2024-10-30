@@ -14,6 +14,7 @@ namespace ControleProdForms.View
         string PdQuantidade { get; set; }
         string PdNome { get; set; }
         DataGridView DataGrid { get; }
+        DataGridView DataGridMp { get; set; }
         string Pesquisa { get; set; }
         string Mensagem { get; set; }
         bool Editado { get; set; }
@@ -29,6 +30,7 @@ namespace ControleProdForms.View
         event EventHandler PegaNome;
 
         //Métodos
+        void SetGridMatProd(BindingSource matProdLista);
         void SetGridProducao(BindingSource pdLista);
         void Show();
     }
