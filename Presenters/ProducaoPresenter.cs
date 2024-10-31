@@ -89,7 +89,7 @@ namespace ControleProdForms.Presenters
                 new Common.ModelDataValidation().Validate(modelo);
                 if (view.Editado)
                 {
-                    repo.AddMatProd(producoes);
+                    repo.EditMatProd(producoes);
                     repo.EditProducao(modelo);
                     repo.AddProducaoLog(modelo);
                     view.Mensagem = "Produto Atualizado com Sucesso!";
@@ -146,7 +146,7 @@ namespace ControleProdForms.Presenters
         {
             var producao = (ProducaoModel)gridProducao.Current;
 
-            var matProdLista = repo.GetMatProd(Convert.ToInt32(producao.Codigo));
+            var matProdLista = repo.GetMatProd(Convert.ToInt32(producao.Id));
 
             view.PdCodigo = producao.Codigo.ToString();
             view.PdData = producao.Data;

@@ -13,6 +13,7 @@ namespace ControleProdForms.Models
         IEnumerable<MatProdModel> GetAllMatProd();
         IEnumerable<MatProdModel> GetMatProd(int matProdId);
         void AddMatProd(List<MatProdModel> matProdList);
+        void EditMatProd(List<MatProdModel> matProdList);
         void AddProducao(ProducaoModel produto);
         void EditProducao(ProducaoModel produto);
         void PegaNome(ProducaoModel produto);

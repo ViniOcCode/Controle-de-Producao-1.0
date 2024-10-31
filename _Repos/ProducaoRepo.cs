@@ -42,7 +42,7 @@ namespace ControleProdForms._Repos
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"INSERT INTO 
-                                        producao_log (log_pd_codigo, log_pd_data, log_pd_qtd)VALUES (@codigo, @data, @quantidade)";
+                                        producao_log (log_pd_id, log_pd_codigo, log_pd_data, log_pd_qtd)VALUES ((SELECT IFNULL(MAX(log_pd_id), 0) + 1 FROM producao_log), @codigo, @data, @quantidade)";
                 command.Parameters.Add("@codigo", DbType.Int32).Value = produto.Codigo;
                 command.Parameters.Add("@data", DbType.String).Value = produto.Data;
                 command.Parameters.Add("@quantidade", DbType.Double).Value = produto.Quantidade;
@@ -226,11 +226,14 @@ namespace ControleProdForms._Repos
 
                 foreach (var matProd in matProdList)
                 {
-                    command.CommandText = @"INSERT INTO 
-                                    producao_materiaprima 
-                                    (pmp_pr_codigo,
+                    command.CommandText = @"INSERT INTO producao_materiaprima 
+                                    (
+                                    pmp_id,
+                                    pmp_pr_codigo,
                                     pmp_mp_codigo, 
-                                    pmp_qtd) VALUES (@codigo, @codigoMp, @quantidade)";
+                                    pmp_qtd
+                                    )
+                                    VALUES ((SELECT IFNULL(MAX(pd_codigo), 0) + 1 FROM producao), @codigo, @codigoMp, @quantidade)";
                     command.Parameters.Clear();
                     command.Parameters.Add("@codigo", DbType.Int32).Value = matProd.CodigoPd;
                     command.Parameters.Add("@codigoMp", DbType.Int32).Value = matProd.CodigoMp;
@@ -243,7 +246,7 @@ namespace ControleProdForms._Repos
         public IEnumerable<MatProdModel> GetMatProd(int matProdId)
         {
             var mpLista = new List<MatProdModel>();
-            int Id = int.TryParse(matProdId.ToString(), out _) ? Convert.ToInt32(matProdId) : 0;
+            int id = int.TryParse(matProdId.ToString(), out _) ? Convert.ToInt32(matProdId) : 0;
 
             using (var connection = new SQLiteConnection(connectionString))
             using (var command = new SQLiteCommand())
@@ -251,16 +254,18 @@ namespace ControleProdForms._Repos
                 connection.Open();  
                 command.Connection = connection;
                 command.CommandText = @"SELECT
-                                            m.mp_codigo,            
+                                            m.mp_codigo,
                                             m.mp_estoque,
                                             m.mp_nome,
-                                            p.pmp_qtd
+                                            p.pmp_qtd,
+                                            p.pmp_data
                                         FROM producao_materiaprima p
                                         LEFT JOIN materia_prima m ON p.pmp_mp_codigo = m.mp_codigo
+                                        INNER JOIN producao pr ON p.pmp_pr_codigo = pr.pd_pr_codigo
                                         WHERE 
-                                             pmp_pr_codigo=@codigo
+                                            p.pmp_id = @codigo
                                         ";
-                command.Parameters.Add("@codigo", DbType.Int32).Value = Id;
+                command.Parameters.Add("@codigo", DbType.Int32).Value = id;
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -276,6 +281,28 @@ namespace ControleProdForms._Repos
             }
 
             return mpLista;
+        }
+
+        public void EditMatProd(List<MatProdModel> matProdList)
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            using (var command = new SQLiteCommand())
+            {
+                connection.Open();
+                command.Connection = connection;
+
+                foreach (var matProd in matProdList)
+                {
+                    command.CommandText = @"UPDATE producao_materiaprima
+                                            SET pmp_qtd=@quantidade
+                                            WHERE pmp_pr_codigo=@codigo AND pmp_mp_codigo=@codigoMp";
+                    command.Parameters.Clear();
+                    command.Parameters.Add("@codigo", DbType.Int32).Value = matProd.CodigoPd;
+                    command.Parameters.Add("@codigoMp", DbType.Int32).Value = matProd.CodigoMp;
+                    command.Parameters.Add("@quantidade", DbType.Double).Value = matProd.QuantidadeMp;
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

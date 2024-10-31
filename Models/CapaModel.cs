@@ -60,7 +60,7 @@ namespace ControleProdForms.Models
                 NumProducao = Convert.ToInt32((long)command.ExecuteScalar());
 
                 // Get Total Number of Orders
-                command.CommandText = @"select count(id) from producao_log
+                command.CommandText = @"select count(log_pd_id) from producao_log
                                         where log_pd_data between  @fromDate and @toDate";
                 command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
                 command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
