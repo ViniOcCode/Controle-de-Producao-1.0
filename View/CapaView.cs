@@ -16,6 +16,7 @@ namespace ControleProdForms.View
         private static CapaView instance;
         private string connectionString;
         private Button currentButton;
+        private string nomeAtual;
 
         // Método estático para garantir instância única da CapaView
         public static CapaView Instancia(Form parentContainer, string connectionString)
@@ -40,17 +41,18 @@ namespace ControleProdForms.View
             InitializeComponent();
             dtpDataComeco.Value = DateTime.Today.AddDays(-7);
             dtpDataFinal.Value = DateTime.Now;
-            BotaoMenu(btn7dias); 
+            BotaoMenu(btn7dias);
             btn7dias.Select();
             // Obtendo a connection string do Repobase.cs
             this.connectionString = connectionString;
-            LoadData();
+            nomeAtual = "%BLOCO%";
+            LoadData(nomeAtual);
         }
 
-        private void LoadData()
+        private void LoadData(string nome)
         {
             CapaModel model = new CapaModel(connectionString);
-                var refreshData = model.LoadData(dtpDataComeco.Value, dtpDataFinal.Value);
+                var refreshData = model.LoadData(dtpDataComeco.Value, dtpDataFinal.Value, nome);
             if (refreshData == true)
             {
 
@@ -78,6 +80,24 @@ namespace ControleProdForms.View
                 Console.WriteLine("Loaded view :)");
             }
             else Console.WriteLine("View not loaded, same query");
+        }
+
+        private void btnBloco_Click(object sender, EventArgs e)
+        {
+            nomeAtual = "'%BLOCO%' OR P.pr_nome LIKE '%CANALETA%'";
+            LoadData(nomeAtual);
+        }
+
+        private void btnMourao_Click(object sender, EventArgs e)
+        {
+            string nomeAtual = "%MOURÃO% OR P.pr_nome LIKE %PILAR% ";
+            LoadData(nomeAtual);
+        }
+
+        private void btnPiso_Click(object sender, EventArgs e)
+        {
+            string nomeAtual = "%PISO% OR P.pr_nome LIKE %GUIA% ";
+            LoadData(nomeAtual);
         }
 
         private void BotaoMenu(object button)
@@ -116,7 +136,7 @@ namespace ControleProdForms.View
         {
             dtpDataComeco.Value = DateTime.Today.AddDays(-7);
             dtpDataFinal.Value = DateTime.Now;
-            LoadData();
+            LoadData(nomeAtual);
             BotaoMenu(sender);
         }
 
@@ -124,7 +144,7 @@ namespace ControleProdForms.View
         {
             dtpDataComeco.Value = DateTime.Today.AddDays(-30);
             dtpDataFinal.Value = DateTime.Now;
-            LoadData();
+            LoadData(nomeAtual);
             BotaoMenu(sender);
         }
 
@@ -132,7 +152,7 @@ namespace ControleProdForms.View
         {
             dtpDataComeco.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
             dtpDataFinal.Value = DateTime.Now;
-            LoadData();
+            LoadData(nomeAtual);
             BotaoMenu(sender);
         }
 
@@ -143,7 +163,7 @@ namespace ControleProdForms.View
 
         private void btnOkCustom_Click(object sender, EventArgs e)
         {
-            LoadData();
+            LoadData(nomeAtual);
         }
 
         private void CapaView_Load(object sender, EventArgs e)

@@ -151,7 +151,7 @@ namespace ControleProdForms.Models
         }
 
 
-        private void AnalisePedido()
+        private void AnalisePedido(string nome)
         {
             ProducaoLista = new List<TempoData>();
 
@@ -160,12 +160,17 @@ namespace ControleProdForms.Models
             {
                 connection.Open();
                 command.Connection = connection;
-                command.CommandText = @"select log_pd_data, sum(log_pd_qtd)
-                                                    from producao_log
-                                                    where log_pd_data between @fromDate and @toDate
-                                                    group by log_pd_data";
+                command.CommandText = @"SELECT pl.log_pd_data, SUM(pl.log_pd_qtd)
+                                        FROM 
+                                            producao_log pl
+                                        LEFT JOIN produtos P ON P.pr_codigo = pl.log_pd_codigo
+                                        WHERE 
+                                            log_pd_data BETWEEN @fromDate AND @toDate
+                                        AND (P.pr_nome LIKE @nomeProduto )
+                                        GROUP BY log_pd_data";
                 command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
                 command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
+                command.Parameters.Add("@nomeProduto", DbType.String).Value = nome;
 
                 var reader = command.ExecuteReader();
                 var resultTable = new List<KeyValuePair<DateTime, decimal>>();
@@ -232,8 +237,10 @@ namespace ControleProdForms.Models
             }
         }
 
+
+
         // Public methods
-        public bool LoadData(DateTime startDate, DateTime endDate)
+        public bool LoadData(DateTime startDate, DateTime endDate, string nome)
         {
             endDate = new DateTime(endDate.Year, endDate.Month, endDate.Day,
                 endDate.Hour, endDate.Minute, 59);
@@ -245,7 +252,7 @@ namespace ControleProdForms.Models
 
                 Numeros();
                 AnaliseProduto();
-                AnalisePedido();
+                AnalisePedido(nome);
                 Console.WriteLine("Refreshed data: {0} - {1}", startDate.ToString(), endDate.ToString());
                 return true;
             }
