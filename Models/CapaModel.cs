@@ -31,6 +31,7 @@ namespace ControleProdForms.Models
         public List<KeyValuePair<string, int>> TopProdutos { get; private set; }
         public List<KeyValuePair<string, int>> TopMateriaPrima { get; private set; }
         public List<KeyValuePair<string, int>> UnderstockList { get; private set; }
+        public List<KeyValuePair<string, int>> UnderstockListMp { get; private set; }
         public List<TempoData> ProducaoLista { get; private set; }
 
         // Constructor
@@ -60,7 +61,7 @@ namespace ControleProdForms.Models
                 NumProducao = Convert.ToInt32((long)command.ExecuteScalar());
 
                 // Get Total Number of Orders
-                command.CommandText = @"select count(log_pd_id) from producao_log
+                command.CommandText = @"select count(log_id) from producao_log
                                         where log_pd_data between  @fromDate and @toDate";
                 command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
                 command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
@@ -68,7 +69,7 @@ namespace ControleProdForms.Models
             }
         }
 
-        private void AnaliseProduto()
+        private void AnaliseProduto(string nome)
         {
             TopProdutos = new List<KeyValuePair<string, int>>();
             UnderstockList = new List<KeyValuePair<string, int>>();
@@ -82,11 +83,13 @@ namespace ControleProdForms.Models
                                                 from producao_log
                                                 inner join produtos P on P.pr_codigo = producao_log.log_pd_codigo
                                                 where log_pd_data between @fromDate and @toDate
+                                                and pr_categoria=@nomeProduto
                                                 group by P.pr_nome
                                                 order by Q desc 
                                                 LIMIT 5";
                 command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
                 command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
+                command.Parameters.Add("@nomeProduto", DbType.String).Value = nome;
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -98,7 +101,8 @@ namespace ControleProdForms.Models
                 // Get Understock
                 command.CommandText = @"select pr_nome, pr_estoque
                                                 from produtos
-                                                where pr_estoque <= 6 and ativo = 1";
+                                                where pr_estoque <= 6 and pr_ativo = 1
+                                                order by pr_estoque desc";
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
@@ -109,47 +113,53 @@ namespace ControleProdForms.Models
             }
         }
 
-        private void AnaliseMateriaPrima()
+        private void AnaliseMateriaPrima(string nome)
         {
-            TopProdutos = new List<KeyValuePair<string, int>>();
-            UnderstockList = new List<KeyValuePair<string, int>>();
+            TopMateriaPrima = new List<KeyValuePair<string, int>>();
+            UnderstockListMp = new List<KeyValuePair<string, int>>();
             using (var connection = new SQLiteConnection(connectionString))
             using (var command = new SQLiteCommand())
             {
                 connection.Open();
                 SQLiteDataReader reader;
                 command.Connection = connection;
-                command.CommandText = @"select P.pr_nome, sum(producao_log.log_pd_qtd) as Q
-                                                from producao_log
-                                                inner join produtos P on P.pr_codigo = producao_log.log_pd_codigo
-                                                where log_pd_data between @fromDate and @toDate
-                                                group by P.pr_nome
+                command.CommandText = @"select m.mp_nome, sum(p.pmp_qtd) as Q
+                                                from 
+                                                    materia_prima m
+                                                inner join 
+                                                          producao_materiaprima p on p.pmp_mp_codigo = m.mp_codigo
+                                                inner join 
+                                                        produtos pr on pr.pr_codigo = p.pmp_pr_codigo
+                                                where 
+                                                    pmp_data between @fromDate and @toDate
+                                                and pr.pr_categoria=@nomeProduto
+                                                group by m.mp_codigo
                                                 order by Q desc 
                                                 LIMIT 5";
                 command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
                 command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
+                command.Parameters.Add("@nomeProduto", DbType.String).Value = nome;
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    TopProdutos.Add(
+                    TopMateriaPrima.Add(
                         new KeyValuePair<string, int>(reader[0].ToString(), Convert.ToInt32(reader[1])));
                 }
                 reader.Close();
 
                 // Get Understock
-                command.CommandText = @"select pr_nome, pr_estoque
-                                                from produtos
-                                                where pr_estoque <= 6 and ativo = 1";
+                command.CommandText = @"select mp_nome, mp_estoque
+                                                from materia_prima
+                                                where mp_estoque <= 6";
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    UnderstockList.Add(
+                    UnderstockListMp.Add(
                         new KeyValuePair<string, int>(reader[0].ToString(), Convert.ToInt32(reader[1])));
                 }
                 reader.Close();
             }
         }
-
 
         private void AnalisePedido(string nome)
         {
@@ -166,7 +176,7 @@ namespace ControleProdForms.Models
                                         LEFT JOIN produtos P ON P.pr_codigo = pl.log_pd_codigo
                                         WHERE 
                                             log_pd_data BETWEEN @fromDate AND @toDate
-                                        AND (P.pr_nome LIKE @nomeProduto )
+                                        AND (P.pr_categoria=@nomeProduto )
                                         GROUP BY log_pd_data";
                 command.Parameters.Add("@fromDate", DbType.String).Value = startDate.ToString("yyyy-MM-dd");
                 command.Parameters.Add("@toDate", DbType.String).Value = endDate.ToString("yyyy-MM-dd");
@@ -237,8 +247,6 @@ namespace ControleProdForms.Models
             }
         }
 
-
-
         // Public methods
         public bool LoadData(DateTime startDate, DateTime endDate, string nome)
         {
@@ -251,7 +259,8 @@ namespace ControleProdForms.Models
                 this.numberDays = (endDate - startDate).Days;
 
                 Numeros();
-                AnaliseProduto();
+                AnaliseProduto(nome);
+                AnaliseMateriaPrima(nome);
                 AnalisePedido(nome);
                 Console.WriteLine("Refreshed data: {0} - {1}", startDate.ToString(), endDate.ToString());
                 return true;

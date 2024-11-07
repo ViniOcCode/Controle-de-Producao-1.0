@@ -25,12 +25,13 @@ namespace ControleProdForms._Repos
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"INSERT INTO 
-                                        Produtos VALUES (@codigo, @nome, @palete, @estoque, @ativo)";
+                                        Produtos VALUES (@codigo, @nome, @palete, @estoque, @ativo, @categoria)";
                 command.Parameters.Add("@codigo", DbType.Int32).Value = produto.Codigo;
                 command.Parameters.Add("@nome", DbType.String).Value = produto.Nome;
                 command.Parameters.Add("@palete", DbType.Int32).Value = produto.Un_Palete;
                 command.Parameters.Add("@estoque", DbType.Int32).Value = produto.Estoque;
                 command.Parameters.Add("@ativo", DbType.Int32).Value = 1;
+                command.Parameters.Add("@categoria", DbType.Int32).Value = produto.Categoria;
                 command.ExecuteNonQuery();
             }
         }
@@ -43,7 +44,7 @@ namespace ControleProdForms._Repos
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"UPDATE Produtos 
-                                        SET ativo=0 
+                                        SET pr_ativo=0 
                                         WHERE pr_codigo=@codigo";
                 command.Parameters.Add("@codigo", DbType.Int32).Value = codigo;
                 command.ExecuteNonQuery();
@@ -74,7 +75,7 @@ namespace ControleProdForms._Repos
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"UPDATE Produtos 
-                                        SET pr_nome=@nome, pr_un_palete=@palete, pr_estoque=@estoque 
+                                        SET pr_nome=@nome, pr_un_palete=@palete, pr_estoque=@estoque, pr_ativo=1
                                         WHERE pr_codigo=@codigo";
                 command.Parameters.Add("@codigo", DbType.Int32).Value = produto.Codigo;
                 command.Parameters.Add("@nome", DbType.String).Value = produto.Nome;
@@ -93,8 +94,8 @@ namespace ControleProdForms._Repos
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"SELECT 
-                                        pr_codigo, pr_nome, pr_un_palete, pr_estoque 
-                                        FROM Produtos WHERE ativo=1";
+                                        pr_codigo, pr_nome, pr_un_palete, pr_estoque, pr_categoria
+                                        FROM produtos WHERE pr_ativo=1";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -104,6 +105,7 @@ namespace ControleProdForms._Repos
                         produto.Nome = reader[1].ToString();
                         produto.Un_Palete = reader[2].ToString();
                         produto.Estoque = reader[3].ToString();
+                        produto.Categoria = Convert.ToInt32(reader[4]);
                         prodLista.Add(produto);
                     }
                 }
@@ -124,8 +126,8 @@ namespace ControleProdForms._Repos
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"SELECT 
-                                              pr_codigo, pr_nome, pr_un_palete, pr_estoque 
-                                        FROM Produtos
+                                              pr_codigo, pr_nome, pr_un_palete, pr_estoque, pr_categoria
+                                        FROM produtos
                                         WHERE pr_codigo=@codigo OR pr_nome LIKE @nome";
                 command.Parameters.AddWithValue("@codigo", prodCodigo);
                 command.Parameters.AddWithValue("@nome", "%" + prodNome + "%");
@@ -138,6 +140,7 @@ namespace ControleProdForms._Repos
                         produto.Nome = reader[1].ToString();
                         produto.Un_Palete = reader[2].ToString();
                         produto.Estoque = reader[3].ToString();
+                        produto.Categoria = Convert.ToInt32(reader[4]);
                         prodLista.Add(produto);
                     }
                 }

@@ -16,6 +16,7 @@ namespace ControleProdForms.Models
         private string un_palete;
         private string estoque;
         private string ativo;
+        private int categoria;
 
         //Propriedades - Validação
         [DisplayName("Código")]
@@ -36,5 +37,8 @@ namespace ControleProdForms.Models
         [Required(ErrorMessage = "O campo Estoque é obrigatório.")]
         [RegularExpression("([0-9]+)", ErrorMessage = "Coloque um número válido")]
         public string Estoque { get => estoque; set => estoque = value; }
+        //[Browsable(false)]
+        [Editable(false)]
+        public int Categoria { get => categoria; set => categoria = value; }
     }
 }

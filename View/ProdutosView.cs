@@ -9,13 +9,14 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ControleProdForms.View
 {
     public partial class ProdutosView : Form, IProdutosView
     {
         // Campos
-        private string mensagem;
+        private string mensagem;    
         private bool sucesso;
         private bool editado;
 
@@ -25,7 +26,8 @@ namespace ControleProdForms.View
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabCadastro);
-            btnSair.Click += delegate { this.Close(); };
+            btnSair.Click += delegate { this.Close();};
+            ConfigurarComboBox();
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -110,6 +112,11 @@ namespace ControleProdForms.View
             get { return txtEstoque.Text; }
             set { txtEstoque.Text = value; }
         }
+        public int ProdCategoria
+        {
+            get { return (int)cbCategoria1.SelectedValue  ; }
+            set { cbCategoria1.SelectedValue = value; }
+        }
         public string Pesquisa
         {
             get { return txtPesquisa.Text; }
@@ -162,5 +169,33 @@ namespace ControleProdForms.View
             return instance;
         }
 
+        private void ConfigurarComboBox()
+        {
+            // Lista de itens com chave e valor
+            var itens = new List<KeyValuePair<int, string>>
+            {
+                new KeyValuePair<int, string>(1, "1. Blocos"),
+                new KeyValuePair<int, string>(2, "2. Mourão"),
+                new KeyValuePair<int, string>(3, "3. Pilar")
+            };
+
+            cbCategoria1.DataSource = itens;
+            cbCategoria1.DisplayMember = "Value"; 
+            cbCategoria1.ValueMember = "Key";
+
+            cbCategoria.DataSource = itens;
+            cbCategoria.DisplayMember = "Value";
+            cbCategoria.ValueMember = "Key";
+
+        }
+        private void ProdutosView_Load(object sender, EventArgs e)
+        {
+            ConfigurarComboBox();
+        }
+
+        private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbCategoria1.SelectedIndex = cbCategoria.SelectedIndex;
+        }
     }
 }

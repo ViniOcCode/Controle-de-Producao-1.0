@@ -17,6 +17,7 @@ namespace ControleProdForms.View
         private string connectionString;
         private Button currentButton;
         private string nomeAtual;
+        private bool IgnoraLoadData = false;
 
         // Método estático para garantir instância única da CapaView
         public static CapaView Instancia(Form parentContainer, string connectionString)
@@ -25,7 +26,7 @@ namespace ControleProdForms.View
             {
                 instance = new CapaView(connectionString);
                 instance.MdiParent = parentContainer;  // Define o contêiner pai como MDI
-                instance.FormBorderStyle = FormBorderStyle.None;    
+                instance.FormBorderStyle = FormBorderStyle.None;
                 instance.Dock = DockStyle.Fill;
             }
             else
@@ -40,23 +41,26 @@ namespace ControleProdForms.View
         {
             InitializeComponent();
             dtpDataComeco.Value = DateTime.Today.AddDays(-7);
-            dtpDataFinal.Value = DateTime.Now;
+            dtpDataFinal.Value = DateTime.Today.AddDays(+1);
             BotaoMenu(btn7dias);
             btn7dias.Select();
             // Obtendo a connection string do Repobase.cs
             this.connectionString = connectionString;
-            nomeAtual = "%BLOCO%";
+            nomeAtual = "1";
             LoadData(nomeAtual);
         }
 
         private void LoadData(string nome)
         {
+
+            if (IgnoraLoadData) return;
+
             CapaModel model = new CapaModel(connectionString);
-                var refreshData = model.LoadData(dtpDataComeco.Value, dtpDataFinal.Value, nome);
+            var refreshData = model.LoadData(dtpDataComeco.Value, dtpDataFinal.Value, nome);
             if (refreshData == true)
             {
 
-                lblProducao.Text = model.TotalProducao.ToString();;
+                lblProducao.Text = model.TotalProducao.ToString(); ;
                 lblNumProduto.Text = model.NumProdutos.ToString();
                 lblNumMat.Text = model.NumMat.ToString();
                 lblNumProducao.Text = model.NumProducao.ToString();
@@ -84,20 +88,23 @@ namespace ControleProdForms.View
 
         private void btnBloco_Click(object sender, EventArgs e)
         {
-            nomeAtual = "'%BLOCO%' OR P.pr_nome LIKE '%CANALETA%'";
+            nomeAtual = "1";
             LoadData(nomeAtual);
+            CarregaAnaliseMp(nomeAtual);
         }
 
         private void btnMourao_Click(object sender, EventArgs e)
         {
-            string nomeAtual = "%MOURÃO% OR P.pr_nome LIKE %PILAR% ";
+            nomeAtual = "2";
             LoadData(nomeAtual);
+            CarregaAnaliseMp(nomeAtual);
         }
 
         private void btnPiso_Click(object sender, EventArgs e)
         {
-            string nomeAtual = "%PISO% OR P.pr_nome LIKE %GUIA% ";
+            nomeAtual = "3";
             LoadData(nomeAtual);
+            CarregaAnaliseMp(nomeAtual);
         }
 
         private void BotaoMenu(object button)
@@ -107,14 +114,14 @@ namespace ControleProdForms.View
             btn.BackColor = btn30dias.FlatAppearance.BorderColor;
             btn.ForeColor = Color.White;
 
-            if(currentButton != null && currentButton != btn)
+            if (currentButton != null && currentButton != btn)
             {
                 currentButton.BackColor = this.BackColor;
                 currentButton.ForeColor = Color.WhiteSmoke;
             }
             currentButton = btn;
 
-            if(currentButton == btnCustomDate)
+            if (currentButton == btnCustomDate)
             {
                 dtpDataComeco.Enabled = true;
                 dtpDataFinal.Enabled = true;
@@ -135,7 +142,7 @@ namespace ControleProdForms.View
         private void btn7dias_Click(object sender, EventArgs e)
         {
             dtpDataComeco.Value = DateTime.Today.AddDays(-7);
-            dtpDataFinal.Value = DateTime.Now;
+            dtpDataFinal.Value = DateTime.Today.AddDays(+1);
             LoadData(nomeAtual);
             BotaoMenu(sender);
         }
@@ -143,15 +150,14 @@ namespace ControleProdForms.View
         private void btn30dias_Click(object sender, EventArgs e)
         {
             dtpDataComeco.Value = DateTime.Today.AddDays(-30);
-            dtpDataFinal.Value = DateTime.Now;
-            LoadData(nomeAtual);
+            dtpDataFinal.Value = DateTime.Today.AddDays(+1);
             BotaoMenu(sender);
         }
 
         private void btnMes_Click(object sender, EventArgs e)
         {
             dtpDataComeco.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
-            dtpDataFinal.Value = DateTime.Now;
+            dtpDataFinal.Value = DateTime.Today.AddDays(+1);
             LoadData(nomeAtual);
             BotaoMenu(sender);
         }
@@ -174,7 +180,7 @@ namespace ControleProdForms.View
 
         private void lblDataComeco_Click(object sender, EventArgs e)
         {
-            if(currentButton==btnCustomDate)
+            if (currentButton == btnCustomDate)
             {
                 dtpDataComeco.Select();
                 SendKeys.Send("%{DOWN}");
@@ -198,6 +204,47 @@ namespace ControleProdForms.View
         private void dtpDataFinal_ValueChanged(object sender, EventArgs e)
         {
             lblDataFinal.Text = dtpDataFinal.Text;
+        }
+
+        private void btnAnalisemp_Click(object sender, EventArgs e)
+        {
+            IgnoraLoadData = true;
+            CarregaAnaliseMp(nomeAtual);
+        }
+
+        private void CarregaAnaliseMp(string nome)
+        {
+
+            if (!IgnoraLoadData) return;
+
+            CapaModel model = new CapaModel(connectionString);
+            var refreshData = model.LoadData(dtpDataComeco.Value, dtpDataFinal.Value, nome);
+            if (refreshData == true)
+            {
+
+                //Top Produtos
+                chartTop.Titles[0].Visible = false;
+                chartTop.Titles[1].Visible = true;
+                chartTop.DataSource = model.TopMateriaPrima;
+                chartTop.Series[0].XValueMember = "Key";
+                chartTop.Series[0].YValueMembers = "Value";
+                chartTop.DataBind();
+
+                //Baixo Estoque
+                dgvEstoque.DataSource = model.UnderstockListMp;
+                dgvEstoque.Columns[0].HeaderText = "Item";
+                dgvEstoque.Columns[1].HeaderText = "Unidades";
+                Console.WriteLine("Loaded view :)");
+            }
+            else Console.WriteLine("View not loaded");
+        }
+
+        private void btnAnalisePd_Click(object sender, EventArgs e)
+        {
+            IgnoraLoadData = false;
+            LoadData(nomeAtual);
+            chartTop.Titles[0].Visible = true;
+            chartTop.Titles[1].Visible = false;
         }
     }
 }

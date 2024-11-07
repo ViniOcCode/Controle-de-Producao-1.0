@@ -14,7 +14,7 @@ namespace ControleProdForms.View
         string ProdNome { get; set; }
         string ProdPalete { get; set; }
         string ProdEstoque { get; set; }
-
+        int ProdCategoria  { get; set; }
         string Pesquisa { get; set; }
         string Mensagem { get; set; }
         bool Editado { get; set; }

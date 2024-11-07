@@ -42,7 +42,7 @@ namespace ControleProdForms._Repos
                 connection.Open();
                 command.Connection = connection;
                 command.CommandText = @"INSERT INTO 
-                                        producao_log (log_pd_id, log_pd_codigo, log_pd_data, log_pd_qtd)VALUES ((SELECT IFNULL(MAX(log_pd_id), 0) + 1 FROM producao_log), @codigo, @data, @quantidade)";
+                                        producao_log (log_id, log_pd_codigo, log_pd_data, log_pd_qtd)VALUES ((SELECT IFNULL(MAX(log_id), 0) + 1 FROM producao_log), @codigo, @data, @quantidade)";
                 command.Parameters.Add("@codigo", DbType.Int32).Value = produto.Codigo;
                 command.Parameters.Add("@data", DbType.String).Value = produto.Data;
                 command.Parameters.Add("@quantidade", DbType.Double).Value = produto.Quantidade;
