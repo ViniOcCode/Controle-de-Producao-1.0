@@ -95,7 +95,8 @@ namespace ControleProdForms._Repos
                 command.Connection = connection;
                 command.CommandText = @"SELECT 
                                         pr_codigo, pr_nome, pr_un_palete, pr_estoque, pr_categoria
-                                        FROM produtos WHERE pr_ativo=1";
+                                        FROM produtos WHERE pr_ativo=1
+                                        ORDER BY pr_estoque DESC";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
