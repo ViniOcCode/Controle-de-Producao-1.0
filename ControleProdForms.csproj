@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Funcoes.cs" />
     <Compile Include="Models\CapaModel.cs" />
+    <Compile Include="Models\ConversaoModel.cs" />
     <Compile Include="Models\IMatRepo.cs" />
     <Compile Include="Models\IProducaoRepo.cs" />
     <Compile Include="Models\IProdutosRepo.cs" />
@@ -77,6 +78,12 @@
     </Compile>
     <Compile Include="View\CapaView.Designer.cs">
       <DependentUpon>CapaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConversaoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ConversaoView.Designer.cs">
+      <DependentUpon>ConversaoView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IMatView.cs" />
     <Compile Include="View\IMenuView.cs" />
@@ -122,6 +129,9 @@
     </Compile>
     <EmbeddedResource Include="View\CapaView.resx">
       <DependentUpon>CapaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ConversaoView.resx">
+      <DependentUpon>ConversaoView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MatView.resx">
       <DependentUpon>MatView.cs</DependentUpon>

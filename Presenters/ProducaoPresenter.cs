@@ -34,7 +34,7 @@ namespace ControleProdForms.Presenters
             this.view.SalvoEvento += SalvarProducao;
             this.view.CancelarEvento += CancelarEdicao;
             this.view.PegaNome += pegaNome;
-
+          
             //Carregar Produtos
             this.view.SetGridProducao(gridProducao);
             this.view.SetGridMatProd(gridMatProd);
@@ -49,6 +49,7 @@ namespace ControleProdForms.Presenters
         {
             matProdLista = repo.GetAllMatProd();
             gridMatProd.DataSource = matProdLista;
+            view.SetGridMatProd(gridMatProd);
         }
 
         private void AllProducao()

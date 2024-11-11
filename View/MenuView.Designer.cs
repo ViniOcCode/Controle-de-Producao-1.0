@@ -37,7 +37,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnSair = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -53,7 +55,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 741);
+            this.panel1.Size = new System.Drawing.Size(200, 780);
             this.panel1.TabIndex = 0;
             // 
             // lbMenu
@@ -158,25 +160,49 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(12)))), ((int)(((byte)(28)))));
+            this.panel3.Controls.Add(this.btnSair);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1154, 60);
+            this.panel3.Size = new System.Drawing.Size(1170, 60);
             this.panel3.TabIndex = 1;
+            // 
+            // btnSair
+            // 
+            this.btnSair.BackColor = System.Drawing.Color.Transparent;
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Bold);
+            this.btnSair.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSair.Image = global::ControleProdForms.Properties.Resources.x;
+            this.btnSair.Location = new System.Drawing.Point(1107, 12);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnSair.Size = new System.Drawing.Size(35, 35);
+            this.btnSair.TabIndex = 2;
+            this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // MenuView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1354, 741);
+            this.ClientSize = new System.Drawing.Size(1370, 780);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.IsMdiContainer = true;
             this.MinimumSize = new System.Drawing.Size(1370, 780);
             this.Name = "MenuView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuView";
+            this.Load += new System.EventHandler(this.MenuView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -192,5 +218,6 @@
         private System.Windows.Forms.Button btnProdutos;
         private System.Windows.Forms.Button btnCapa;
         private System.Windows.Forms.Label lbMenu;
+        private System.Windows.Forms.Button btnSair;
     }
 }

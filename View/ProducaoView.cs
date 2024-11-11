@@ -25,12 +25,14 @@ namespace ControleProdForms.View
             tabControl1.TabPages.Remove(tabCadastro);
             btnSair.Click += delegate { this.Close(); };
             this.Shown += ProducaoView_Shown;
+            DataGrid.DataBindingComplete += (s, e) => DataGrid.ClearSelection();
 
         }
         private void ProducaoView_Shown(object sender, EventArgs e)
         {
             FormatGridView(); // Chame o método aqui após o formulário ser exibido
         }
+
 
         private void AssociateAndRaiseViewEvents()
         {
@@ -167,11 +169,12 @@ namespace ControleProdForms.View
         public void SetGridProducao(BindingSource pdLista)
         {
             DataGrid.DataSource = pdLista;
+            DataGrid.ClearSelection();
         }
 
         public void SetGridMatProd(BindingSource matProdLista)
         {
-           mpLista.DataSource = matProdLista;
+            DataGridMp.DataSource = matProdLista;
         }
 
         private void FormatGridView()
@@ -229,11 +232,17 @@ namespace ControleProdForms.View
         private void ProducaoView_Load(object sender, EventArgs e)
         {
             lblData.Text = dtpData.Text;
+            DataGridMp.Refresh();
         }
 
         private void dtpData_ValueChanged(object sender, EventArgs e)
         {
             lblData.Text = dtpData.Text;
+        }
+
+        private void dgLista_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEdit.Enabled = true;
         }
     }
 }

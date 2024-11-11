@@ -60,7 +60,7 @@ namespace ControleProdForms.View
             if (refreshData == true)
             {
 
-                lblProducao.Text = model.TotalProducao.ToString(); ;
+                lblProducao.Text = model.TotalProducao.ToString();
                 lblNumProduto.Text = model.NumProdutos.ToString();
                 lblNumMat.Text = model.NumMat.ToString();
                 lblNumProducao.Text = model.NumProducao.ToString();
@@ -176,6 +176,8 @@ namespace ControleProdForms.View
         {
             lblDataComeco.Text = dtpDataComeco.Text;
             lblDataFinal.Text = dtpDataFinal.Text;
+
+            dgvEstoque.Columns[0].Width = 400;
         }
 
         private void lblDataComeco_Click(object sender, EventArgs e)

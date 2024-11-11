@@ -28,6 +28,7 @@ namespace ControleProdForms.View
             tabControl1.TabPages.Remove(tabCadastro);
             btnSair.Click += delegate { this.Close();};
             ConfigurarComboBox();
+            dgLista.DataBindingComplete += (s, e) => dgLista.ClearSelection();
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -148,6 +149,7 @@ namespace ControleProdForms.View
         public void SetGridProdutos(BindingSource prodLista)
         {
             dgLista.DataSource = prodLista;
+            dgLista.ClearSelection();
         }
 
         private static ProdutosView instance;
@@ -196,6 +198,11 @@ namespace ControleProdForms.View
         private void cbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbCategoria1.SelectedIndex = cbCategoria.SelectedIndex;
+        }
+
+        private void dgLista_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEdit.Enabled = true;
         }
     }
 }

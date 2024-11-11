@@ -21,6 +21,8 @@ namespace ControleProdForms.View
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabCadastro);
             btnSair.Click += delegate { this.Close(); };
+
+            dgLista.DataBindingComplete += (s, e) => dgLista.ClearSelection();
         }
 
         private void AssociateAndRaiseViewEvents()
@@ -130,6 +132,7 @@ namespace ControleProdForms.View
         public void SetGridMat(BindingSource matLista)
         {
             dgLista.DataSource = matLista;
+            dgLista.ClearSelection();
         }
 
         private static MatView instance;
@@ -149,6 +152,17 @@ namespace ControleProdForms.View
                 instance.BringToFront();
             }
             return instance;
+        }
+
+        private void btnConversor_Click(object sender, EventArgs e)
+        {
+            Form1 conversaoView = new Form1();
+            conversaoView.ShowDialog();
+        }
+
+        private void dgLista_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEdit.Enabled = true;
         }
     }
 }
