@@ -156,7 +156,7 @@ namespace ControleProdForms.View
 
         private void btnConversor_Click(object sender, EventArgs e)
         {
-            Form1 conversaoView = new Form1();
+            ConversaoView conversaoView = new ConversaoView();
             conversaoView.ShowDialog();
         }
 

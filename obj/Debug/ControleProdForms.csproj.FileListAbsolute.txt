@@ -16,4 +16,4 @@ C:\Users\Vinicius\source\repos\ControleProdForms\bin\Debug\System.Data.SQLite.xm
 C:\Users\Vinicius\source\repos\ControleProdForms\obj\Debug\Controle.3F00913F.Up2Date
 C:\Users\Vinicius\source\repos\ControleProdForms\obj\Debug\ControleProdForms.exe
 C:\Users\Vinicius\source\repos\ControleProdForms\obj\Debug\ControleProdForms.pdb
-C:\Users\Vinicius\source\repos\ControleProdForms\obj\Debug\ControleProdForms.View.Form1.resources
+C:\Users\Vinicius\source\repos\ControleProdForms\obj\Debug\ControleProdForms.View.ConversaoView.resources

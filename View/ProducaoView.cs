@@ -1,5 +1,4 @@
-﻿using ControleProdForms.Presenters;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,14 +22,14 @@ namespace ControleProdForms.View
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabCadastro);
-            btnSair.Click += delegate { this.Close(); };
+            btnSair.Click += delegate { this.Close();};
             this.Shown += ProducaoView_Shown;
             DataGrid.DataBindingComplete += (s, e) => DataGrid.ClearSelection();
 
         }
         private void ProducaoView_Shown(object sender, EventArgs e)
         {
-            FormatGridView(); // Chame o método aqui após o formulário ser exibido
+            FormatGridView();
         }
 
 
@@ -62,11 +61,11 @@ namespace ControleProdForms.View
             {
                 txtCodigo.Enabled = false;
                 btnNew.Enabled = false;
-                EditarEvento?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabMenu);
                 tabControl1.TabPages.Add(tabCadastro);
                 lblData.Text = dtpData.Text;
                 tabCadastro.Text = "Editar Produção";
+                EditarEvento?.Invoke(this, EventArgs.Empty);
             };
             btnSave.Click += delegate
             {
@@ -232,7 +231,6 @@ namespace ControleProdForms.View
         private void ProducaoView_Load(object sender, EventArgs e)
         {
             lblData.Text = dtpData.Text;
-            DataGridMp.Refresh();
         }
 
         private void dtpData_ValueChanged(object sender, EventArgs e)
@@ -244,5 +242,6 @@ namespace ControleProdForms.View
         {
             btnEdit.Enabled = true;
         }
+
     }
 }

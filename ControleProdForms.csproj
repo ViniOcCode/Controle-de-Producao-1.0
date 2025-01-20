@@ -58,7 +58,6 @@
   <ItemGroup>
     <Compile Include="Funcoes.cs" />
     <Compile Include="Models\CapaModel.cs" />
-    <Compile Include="Models\ConversaoModel.cs" />
     <Compile Include="Models\IMatRepo.cs" />
     <Compile Include="Models\IProducaoRepo.cs" />
     <Compile Include="Models\IProdutosRepo.cs" />
