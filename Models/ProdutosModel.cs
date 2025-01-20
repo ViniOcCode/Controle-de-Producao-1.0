@@ -16,11 +16,13 @@ namespace ControleProdForms.Models
         private string un_palete;
         private string estoque;
         private string ativo;
+        private int categoria;
 
         //Propriedades - Validação
         [DisplayName("Código")]
         [Required(ErrorMessage = "O campo Código é obrigatório.")]
         [StringLength(5, MinimumLength = 5, ErrorMessage = "O código deve ter no mínimo 5 digitos")] //exemplo: 10140 e não 1140
+        [RegularExpression("([0-9]+)", ErrorMessage = "Coloque um número válido")]
         public string Codigo { get => codigo; set => codigo = value; }
 
         [DisplayName("Descrição")]
@@ -29,9 +31,14 @@ namespace ControleProdForms.Models
 
         [DisplayName("Palete")]
         [Required(ErrorMessage = "O campo Palete é obrigatório.")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "Coloque um número válido")]
         public string Un_Palete { get => un_palete; set => un_palete = value; }
         [DisplayName("Estoque")]
         [Required(ErrorMessage = "O campo Estoque é obrigatório.")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "Coloque um número válido")]
         public string Estoque { get => estoque; set => estoque = value; }
+        //[Browsable(false)]
+        [Editable(false)]
+        public int Categoria { get => categoria; set => categoria = value; }
     }
 }

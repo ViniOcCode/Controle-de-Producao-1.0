@@ -26,5 +26,15 @@ namespace ControleProdForms.View
         public event EventHandler MostraMateria;
         public event EventHandler MostraProducao;
         public event EventHandler MostraCapa;
+
+        private void MenuView_Load(object sender, EventArgs e)
+        {
+            MostraCapa?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

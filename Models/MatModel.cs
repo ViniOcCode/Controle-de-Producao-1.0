@@ -17,6 +17,7 @@ namespace ControleProdForms.Models
         //Propriedades - Validação
         [DisplayName("Código")]
         [Required(ErrorMessage = "O campo Código é obrigatório.")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "Coloque um número válido")]
         public string Codigo { get => codigo; set => codigo = value; }
 
         [DisplayName("Descrição")]
@@ -25,6 +26,7 @@ namespace ControleProdForms.Models
 
         [DisplayName("Estoque")]
         [Required(ErrorMessage = "O campo Estoque é obrigatório.")]
+        [RegularExpression("([0-9]+)", ErrorMessage = "Coloque um número válido")]
         public string Estoque { get => estoque; set => estoque = value; }
     }
 }

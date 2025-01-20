@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbCategoria1 = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +44,11 @@
             this.dgLista = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabMenu = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.btnPesquisa = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabCadastro = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,7 +60,9 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -62,33 +70,23 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.btnPesquisa = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabMenu.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabCadastro.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            this.panel1.Controls.Add(this.cbCategoria1);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.label1);
@@ -97,6 +95,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(690, 62);
             this.panel1.TabIndex = 0;
+            // 
+            // cbCategoria1
+            // 
+            this.cbCategoria1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cbCategoria1.FormattingEnabled = true;
+            this.cbCategoria1.Location = new System.Drawing.Point(287, 16);
+            this.cbCategoria1.Name = "cbCategoria1";
+            this.cbCategoria1.Size = new System.Drawing.Size(121, 28);
+            this.cbCategoria1.Sorted = true;
+            this.cbCategoria1.TabIndex = 5;
+            this.cbCategoria1.Visible = false;
             // 
             // panel5
             // 
@@ -108,8 +117,9 @@
             // 
             // btnSair
             // 
+            this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSair.BackColor = System.Drawing.Color.Transparent;
-            this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
+            this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -166,29 +176,32 @@
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnDel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDel.Image = global::ControleProdForms.Properties.Resources.excluir__1_;
             this.btnDel.Location = new System.Drawing.Point(153, 24);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(64, 54);
             this.btnDel.TabIndex = 0;
             this.btnDel.Text = "Excluir";
-            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDel.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.Enabled = false;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
             this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnEdit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEdit.Image = global::ControleProdForms.Properties.Resources.editar;
             this.btnEdit.Location = new System.Drawing.Point(83, 24);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(64, 54);
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "Editar";
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnAdd
@@ -200,16 +213,20 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnAdd.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAdd.Image = global::ControleProdForms.Properties.Resources.aba;
             this.btnAdd.Location = new System.Drawing.Point(13, 24);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(64, 54);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Adicionar";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel4.Controls.Add(this.dgLista);
             this.panel4.Location = new System.Drawing.Point(12, 103);
@@ -221,28 +238,31 @@
             // 
             this.dgLista.AllowUserToAddRows = false;
             this.dgLista.AllowUserToDeleteRows = false;
+            this.dgLista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgLista.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
             this.dgLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgLista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgLista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(144)))), ((int)(((byte)(173)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgLista.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(144)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgLista.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgLista.EnableHeadersVisualStyles = false;
             this.dgLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(144)))), ((int)(((byte)(173)))));
             this.dgLista.Location = new System.Drawing.Point(11, 13);
@@ -252,6 +272,7 @@
             this.dgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgLista.Size = new System.Drawing.Size(634, 481);
             this.dgLista.TabIndex = 0;
+            this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
             // 
             // tabControl1
             // 
@@ -268,7 +289,6 @@
             // 
             this.tabMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
             this.tabMenu.Controls.Add(this.panel2);
-            this.tabMenu.Controls.Add(this.panel9);
             this.tabMenu.Controls.Add(this.panel4);
             this.tabMenu.Controls.Add(this.panel3);
             this.tabMenu.Location = new System.Drawing.Point(4, 22);
@@ -277,6 +297,72 @@
             this.tabMenu.Size = new System.Drawing.Size(682, 615);
             this.tabMenu.TabIndex = 0;
             this.tabMenu.Text = "Menu";
+            // 
+            // panel2
+            // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
+            this.panel2.Controls.Add(this.txtPesquisa);
+            this.panel2.Controls.Add(this.btnPesquisa);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(245, 9);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(422, 92);
+            this.panel2.TabIndex = 3;
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPesquisa.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.txtPesquisa.Location = new System.Drawing.Point(16, 61);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(327, 27);
+            this.txtPesquisa.TabIndex = 2;
+            // 
+            // btnPesquisa
+            // 
+            this.btnPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPesquisa.BackColor = System.Drawing.Color.Transparent;
+            this.btnPesquisa.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
+            this.btnPesquisa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPesquisa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
+            this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisa.Font = new System.Drawing.Font("Century Gothic", 7.5F);
+            this.btnPesquisa.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisa.Image = global::ControleProdForms.Properties.Resources.procurar;
+            this.btnPesquisa.Location = new System.Drawing.Point(349, 35);
+            this.btnPesquisa.Name = "btnPesquisa";
+            this.btnPesquisa.Size = new System.Drawing.Size(64, 54);
+            this.btnPesquisa.TabIndex = 0;
+            this.btnPesquisa.Text = "Pesquisar";
+            this.btnPesquisa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPesquisa.UseVisualStyleBackColor = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(13, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Pesquisa";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(13, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(111, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Opções de Busca";
             // 
             // tabCadastro
             // 
@@ -304,6 +390,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
@@ -315,6 +402,7 @@
             // 
             // panel8
             // 
+            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel8.Controls.Add(this.txtEstoque);
             this.panel8.Controls.Add(this.txtPalete);
@@ -345,6 +433,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtNome.Location = new System.Drawing.Point(89, 10);
             this.txtNome.Name = "txtNome";
@@ -386,14 +475,28 @@
             // 
             // panel7
             // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
+            this.panel7.Controls.Add(this.cbCategoria);
             this.panel7.Controls.Add(this.txtCodigo);
+            this.panel7.Controls.Add(this.label12);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.label6);
             this.panel7.Location = new System.Drawing.Point(102, 243);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(470, 84);
             this.panel7.TabIndex = 0;
+            // 
+            // cbCategoria
+            // 
+            this.cbCategoria.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(298, 34);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(121, 28);
+            this.cbCategoria.Sorted = true;
+            this.cbCategoria.TabIndex = 4;
+            this.cbCategoria.SelectedIndexChanged += new System.EventHandler(this.cbCategoria_SelectedIndexChanged);
             // 
             // txtCodigo
             // 
@@ -402,6 +505,17 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(112, 27);
             this.txtCodigo.TabIndex = 3;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label12.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label12.Location = new System.Drawing.Point(219, 39);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 16);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Categoria";
             // 
             // label8
             // 
@@ -427,6 +541,7 @@
             // 
             // panel6
             // 
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.btnCancel);
@@ -457,11 +572,13 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.Image = global::ControleProdForms.Properties.Resources.x;
             this.btnCancel.Location = new System.Drawing.Point(154, 26);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(64, 54);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
@@ -473,11 +590,13 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Image = global::ControleProdForms.Properties.Resources.salvar_pasta;
             this.btnSave.Location = new System.Drawing.Point(84, 26);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(64, 54);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Salvar";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnNew
@@ -489,130 +608,14 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnNew.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNew.Image = global::ControleProdForms.Properties.Resources.aba;
             this.btnNew.Location = new System.Drawing.Point(14, 26);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(64, 54);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Novo";
+            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNew.UseVisualStyleBackColor = false;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
-            this.panel9.Controls.Add(this.textBox1);
-            this.panel9.Controls.Add(this.button1);
-            this.panel9.Controls.Add(this.label12);
-            this.panel9.Controls.Add(this.label13);
-            this.panel9.Location = new System.Drawing.Point(130, 261);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(422, 92);
-            this.panel9.TabIndex = 2;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.textBox1.Location = new System.Drawing.Point(16, 61);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(327, 27);
-            this.textBox1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 7.5F);
-            this.button1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.Location = new System.Drawing.Point(349, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 54);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Pesquisar";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(13, 42);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(64, 16);
-            this.label12.TabIndex = 1;
-            this.label12.Text = "Pesquisa";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(13, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(111, 16);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Opções de Busca";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
-            this.panel2.Controls.Add(this.txtPesquisa);
-            this.panel2.Controls.Add(this.btnPesquisa);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(245, 9);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(422, 92);
-            this.panel2.TabIndex = 3;
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.txtPesquisa.Location = new System.Drawing.Point(16, 61);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(327, 27);
-            this.txtPesquisa.TabIndex = 2;
-            // 
-            // btnPesquisa
-            // 
-            this.btnPesquisa.BackColor = System.Drawing.Color.Transparent;
-            this.btnPesquisa.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
-            this.btnPesquisa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnPesquisa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
-            this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPesquisa.Font = new System.Drawing.Font("Century Gothic", 7.5F);
-            this.btnPesquisa.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPesquisa.Location = new System.Drawing.Point(349, 35);
-            this.btnPesquisa.Name = "btnPesquisa";
-            this.btnPesquisa.Size = new System.Drawing.Size(64, 54);
-            this.btnPesquisa.TabIndex = 0;
-            this.btnPesquisa.Text = "Pesquisar";
-            this.btnPesquisa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPesquisa.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(13, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 16);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Pesquisa";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(13, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Opções de Busca";
             // 
             // ProdutosView
             // 
@@ -623,6 +626,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ProdutosView";
             this.Text = "ProdutosView";
+            this.Load += new System.EventHandler(this.ProdutosView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -631,6 +635,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgLista)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabMenu.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.tabCadastro.ResumeLayout(false);
             this.tabCadastro.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -639,10 +645,6 @@
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -681,15 +683,13 @@
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnSair;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Button btnPesquisa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbCategoria;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cbCategoria1;
     }
 }

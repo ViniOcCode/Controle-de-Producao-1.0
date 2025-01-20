@@ -60,6 +60,7 @@ namespace ControleProdForms.Presenters
             modelo.Nome = view.ProdNome;
             modelo.Un_Palete = view.ProdPalete;
             modelo.Estoque = view.ProdEstoque;
+            modelo.Categoria = view.ProdCategoria;
             try
             {
                 new Common.ModelDataValidation().Validate(modelo);
@@ -73,7 +74,6 @@ namespace ControleProdForms.Presenters
                 {
                     repo.AddProduto(modelo);
                     view.Mensagem = "Produto Adicionado com Sucesso!";
-
                 }
                 view.MensagemSucesso = true;
                 TodosProdutos();
@@ -119,6 +119,7 @@ namespace ControleProdForms.Presenters
             view.ProdNome = produto.Nome;
             view.ProdPalete = produto.Un_Palete.ToString();
             view.ProdEstoque = produto.Estoque.ToString();
+            view.ProdCategoria = produto.Categoria;
             view.Editado = true;
         }
 

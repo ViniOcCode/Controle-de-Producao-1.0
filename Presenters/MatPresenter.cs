@@ -63,7 +63,6 @@ namespace ControleProdForms.Presenters
                 new Common.ModelDataValidation().Validate(modelo);
                 if (view.Editado)
                 {
-
                     repo.EditMateria(modelo);
                     view.Mensagem = "Materia Prima Atualizada com Sucesso!";
                 }

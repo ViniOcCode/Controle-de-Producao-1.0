@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnConversor = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            this.panel1.Controls.Add(this.btnConversor);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.label1);
@@ -89,6 +91,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(690, 62);
             this.panel1.TabIndex = 1;
+            // 
+            // btnConversor
+            // 
+            this.btnConversor.Location = new System.Drawing.Point(220, 19);
+            this.btnConversor.Name = "btnConversor";
+            this.btnConversor.Size = new System.Drawing.Size(75, 23);
+            this.btnConversor.TabIndex = 3;
+            this.btnConversor.Text = "Conversao";
+            this.btnConversor.UseVisualStyleBackColor = true;
+            this.btnConversor.Click += new System.EventHandler(this.btnConversor_Click);
             // 
             // panel5
             // 
@@ -100,8 +112,9 @@
             // 
             // btnSair
             // 
+            this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSair.BackColor = System.Drawing.Color.Transparent;
-            this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
+            this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -152,6 +165,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel2.Controls.Add(this.txtPesquisa);
             this.panel2.Controls.Add(this.btnPesquisa);
@@ -164,6 +179,9 @@
             // 
             // txtPesquisa
             // 
+            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPesquisa.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtPesquisa.Location = new System.Drawing.Point(16, 61);
             this.txtPesquisa.Name = "txtPesquisa";
@@ -172,6 +190,7 @@
             // 
             // btnPesquisa
             // 
+            this.btnPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPesquisa.BackColor = System.Drawing.Color.Transparent;
             this.btnPesquisa.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
             this.btnPesquisa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -179,12 +198,13 @@
             this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisa.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnPesquisa.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisa.Image = global::ControleProdForms.Properties.Resources.procurar;
             this.btnPesquisa.Location = new System.Drawing.Point(349, 35);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(64, 54);
             this.btnPesquisa.TabIndex = 0;
             this.btnPesquisa.Text = "Pesquisar";
-            this.btnPesquisa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPesquisa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPesquisa.UseVisualStyleBackColor = false;
             // 
             // label3
@@ -211,6 +231,9 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel4.Controls.Add(this.dgLista);
             this.panel4.Location = new System.Drawing.Point(12, 103);
@@ -222,6 +245,9 @@
             // 
             this.dgLista.AllowUserToAddRows = false;
             this.dgLista.AllowUserToDeleteRows = false;
+            this.dgLista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgLista.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
             this.dgLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -253,6 +279,7 @@
             this.dgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgLista.Size = new System.Drawing.Size(634, 481);
             this.dgLista.TabIndex = 0;
+            this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
             // 
             // panel3
             // 
@@ -286,29 +313,32 @@
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnDel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDel.Image = global::ControleProdForms.Properties.Resources.excluir__1_;
             this.btnDel.Location = new System.Drawing.Point(153, 24);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(64, 54);
             this.btnDel.TabIndex = 0;
             this.btnDel.Text = "Excluir";
-            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDel.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.Enabled = false;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
             this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnEdit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEdit.Image = global::ControleProdForms.Properties.Resources.editar;
             this.btnEdit.Location = new System.Drawing.Point(83, 24);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(64, 54);
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "Editar";
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnAdd
@@ -320,12 +350,13 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnAdd.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAdd.Image = global::ControleProdForms.Properties.Resources.aba;
             this.btnAdd.Location = new System.Drawing.Point(13, 24);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(64, 54);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Adicionar";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // tabCadastro
@@ -354,6 +385,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
@@ -365,6 +397,7 @@
             // 
             // panel8
             // 
+            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel8.Controls.Add(this.txtEstoque);
             this.panel8.Controls.Add(this.txtNome);
@@ -385,6 +418,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNome.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtNome.Location = new System.Drawing.Point(89, 10);
             this.txtNome.Name = "txtNome";
@@ -415,6 +449,7 @@
             // 
             // panel7
             // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel7.Controls.Add(this.txtCodigo);
             this.panel7.Controls.Add(this.label8);
@@ -456,6 +491,7 @@
             // 
             // panel6
             // 
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.btnCancel);
@@ -486,11 +522,13 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.Image = global::ControleProdForms.Properties.Resources.x;
             this.btnCancel.Location = new System.Drawing.Point(154, 26);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(64, 54);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
@@ -502,11 +540,13 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Image = global::ControleProdForms.Properties.Resources.salvar_pasta;
             this.btnSave.Location = new System.Drawing.Point(84, 26);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(64, 54);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Salvar";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnNew
@@ -518,11 +558,13 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnNew.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNew.Image = global::ControleProdForms.Properties.Resources.aba;
             this.btnNew.Location = new System.Drawing.Point(14, 26);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(64, 54);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Novo";
+            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNew.UseVisualStyleBackColor = false;
             // 
             // MatView
@@ -593,5 +635,6 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnConversor;
     }
 }

@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
@@ -52,7 +54,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.date = new System.Windows.Forms.DateTimePicker();
+            this.lblData = new System.Windows.Forms.Label();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.txtQuantidade = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -67,6 +70,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.mpLista = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabMenu.SuspendLayout();
@@ -78,6 +82,7 @@
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mpLista)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -94,6 +99,8 @@
             // 
             // panel5
             // 
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel5.Location = new System.Drawing.Point(0, 52);
             this.panel5.Name = "panel5";
@@ -102,8 +109,9 @@
             // 
             // btnSair
             // 
+            this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSair.BackColor = System.Drawing.Color.Transparent;
-            this.btnSair.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
+            this.btnSair.FlatAppearance.BorderSize = 0;
             this.btnSair.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnSair.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Crimson;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -154,6 +162,8 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel2.Controls.Add(this.txtPesquisa);
             this.panel2.Controls.Add(this.btnPesquisa);
@@ -166,6 +176,8 @@
             // 
             // txtPesquisa
             // 
+            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPesquisa.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.txtPesquisa.Location = new System.Drawing.Point(16, 61);
             this.txtPesquisa.Name = "txtPesquisa";
@@ -174,6 +186,7 @@
             // 
             // btnPesquisa
             // 
+            this.btnPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnPesquisa.BackColor = System.Drawing.Color.Transparent;
             this.btnPesquisa.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
             this.btnPesquisa.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -181,12 +194,13 @@
             this.btnPesquisa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisa.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnPesquisa.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPesquisa.Image = global::ControleProdForms.Properties.Resources.procurar;
             this.btnPesquisa.Location = new System.Drawing.Point(349, 35);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(64, 54);
             this.btnPesquisa.TabIndex = 0;
             this.btnPesquisa.Text = "Pesquisar";
-            this.btnPesquisa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPesquisa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPesquisa.UseVisualStyleBackColor = false;
             // 
             // label3
@@ -213,6 +227,9 @@
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel4.Controls.Add(this.dgLista);
             this.panel4.Location = new System.Drawing.Point(12, 103);
@@ -224,28 +241,31 @@
             // 
             this.dgLista.AllowUserToAddRows = false;
             this.dgLista.AllowUserToDeleteRows = false;
+            this.dgLista.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgLista.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
             this.dgLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgLista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgLista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(144)))), ((int)(((byte)(173)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgLista.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(144)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgLista.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgLista.EnableHeadersVisualStyles = false;
             this.dgLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(144)))), ((int)(((byte)(173)))));
             this.dgLista.Location = new System.Drawing.Point(11, 13);
@@ -255,6 +275,7 @@
             this.dgLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgLista.Size = new System.Drawing.Size(634, 481);
             this.dgLista.TabIndex = 0;
+            this.dgLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgLista_CellClick);
             // 
             // panel3
             // 
@@ -288,29 +309,32 @@
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnDel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnDel.Image = global::ControleProdForms.Properties.Resources.excluir__1_;
             this.btnDel.Location = new System.Drawing.Point(153, 24);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(64, 54);
             this.btnDel.TabIndex = 0;
             this.btnDel.Text = "Excluir";
-            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDel.UseVisualStyleBackColor = false;
             // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.Enabled = false;
             this.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
             this.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(60)))), ((int)(((byte)(104)))));
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnEdit.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEdit.Image = global::ControleProdForms.Properties.Resources.editar;
             this.btnEdit.Location = new System.Drawing.Point(83, 24);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(64, 54);
             this.btnEdit.TabIndex = 0;
             this.btnEdit.Text = "Editar";
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEdit.UseVisualStyleBackColor = false;
             // 
             // btnAdd
@@ -322,17 +346,19 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 7.5F);
             this.btnAdd.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAdd.Image = global::ControleProdForms.Properties.Resources.aba;
             this.btnAdd.Location = new System.Drawing.Point(13, 24);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(64, 54);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Adicionar";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
             // tabCadastro
             // 
             this.tabCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(12)))), ((int)(((byte)(28)))));
+            this.tabCadastro.Controls.Add(this.mpLista);
             this.tabCadastro.Controls.Add(this.label4);
             this.tabCadastro.Controls.Add(this.label7);
             this.tabCadastro.Controls.Add(this.panel8);
@@ -356,10 +382,11 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(98, 122);
+            this.label7.Location = new System.Drawing.Point(101, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(191, 23);
             this.label7.TabIndex = 1;
@@ -367,24 +394,40 @@
             // 
             // panel8
             // 
+            this.panel8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
-            this.panel8.Controls.Add(this.date);
+            this.panel8.Controls.Add(this.lblData);
+            this.panel8.Controls.Add(this.dtpData);
             this.panel8.Controls.Add(this.txtQuantidade);
             this.panel8.Controls.Add(this.label11);
             this.panel8.Controls.Add(this.label10);
-            this.panel8.Location = new System.Drawing.Point(102, 330);
+            this.panel8.Location = new System.Drawing.Point(105, 275);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(483, 55);
             this.panel8.TabIndex = 0;
             // 
-            // date
+            // lblData
             // 
-            this.date.Font = new System.Drawing.Font("Segoe UI", 11.25F);
-            this.date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.date.Location = new System.Drawing.Point(294, 10);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(115, 27);
-            this.date.TabIndex = 4;
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblData.Location = new System.Drawing.Point(295, 12);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(92, 21);
+            this.lblData.TabIndex = 5;
+            this.lblData.Text = "2024-10-23";
+            this.lblData.Click += new System.EventHandler(this.lblData_Click);
+            // 
+            // dtpData
+            // 
+            this.dtpData.CustomFormat = "yyy-MM-dd";
+            this.dtpData.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpData.Location = new System.Drawing.Point(294, 11);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(94, 23);
+            this.dtpData.TabIndex = 4;
+            this.dtpData.ValueChanged += new System.EventHandler(this.dtpData_ValueChanged);
             // 
             // txtQuantidade
             // 
@@ -418,13 +461,14 @@
             // 
             // panel7
             // 
+            this.panel7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel7.Controls.Add(this.txtCodigo);
             this.panel7.Controls.Add(this.label8);
             this.panel7.Controls.Add(this.txtNome);
             this.panel7.Controls.Add(this.label6);
             this.panel7.Controls.Add(this.label9);
-            this.panel7.Location = new System.Drawing.Point(102, 243);
+            this.panel7.Location = new System.Drawing.Point(105, 188);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(483, 84);
             this.panel7.TabIndex = 0;
@@ -481,12 +525,13 @@
             // 
             // panel6
             // 
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(40)))), ((int)(((byte)(69)))));
             this.panel6.Controls.Add(this.label5);
             this.panel6.Controls.Add(this.btnCancel);
             this.panel6.Controls.Add(this.btnSave);
             this.panel6.Controls.Add(this.btnNew);
-            this.panel6.Location = new System.Drawing.Point(102, 157);
+            this.panel6.Location = new System.Drawing.Point(105, 102);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(483, 84);
             this.panel6.TabIndex = 0;
@@ -511,11 +556,13 @@
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnCancel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCancel.Image = global::ControleProdForms.Properties.Resources.x;
             this.btnCancel.Location = new System.Drawing.Point(154, 26);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(64, 54);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // btnSave
@@ -527,11 +574,13 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Image = global::ControleProdForms.Properties.Resources.salvar_pasta;
             this.btnSave.Location = new System.Drawing.Point(84, 26);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(64, 54);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Salvar";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSave.UseVisualStyleBackColor = false;
             // 
             // btnNew
@@ -543,12 +592,51 @@
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNew.Font = new System.Drawing.Font("Century Gothic", 7F);
             this.btnNew.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnNew.Image = global::ControleProdForms.Properties.Resources.aba;
             this.btnNew.Location = new System.Drawing.Point(14, 26);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(64, 54);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "Novo";
+            this.btnNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnNew.UseVisualStyleBackColor = false;
+            // 
+            // mpLista
+            // 
+            this.mpLista.AllowUserToAddRows = false;
+            this.mpLista.AllowUserToDeleteRows = false;
+            this.mpLista.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mpLista.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.mpLista.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            this.mpLista.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.mpLista.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.mpLista.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mpLista.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.mpLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(18)))), ((int)(((byte)(42)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(144)))), ((int)(((byte)(173)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mpLista.DefaultCellStyle = dataGridViewCellStyle4;
+            this.mpLista.EnableHeadersVisualStyles = false;
+            this.mpLista.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(144)))), ((int)(((byte)(173)))));
+            this.mpLista.Location = new System.Drawing.Point(105, 336);
+            this.mpLista.Name = "mpLista";
+            this.mpLista.ReadOnly = true;
+            this.mpLista.RowHeadersVisible = false;
+            this.mpLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.mpLista.Size = new System.Drawing.Size(483, 242);
+            this.mpLista.TabIndex = 2;
             // 
             // ProducaoView
             // 
@@ -559,6 +647,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ProducaoView";
             this.Text = "ProducaoView";
+            this.Load += new System.EventHandler(this.ProducaoView_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -577,6 +666,7 @@
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mpLista)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -591,7 +681,6 @@
         private System.Windows.Forms.TabPage tabMenu;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtPesquisa;
-        private System.Windows.Forms.Button btnPesquisa;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
@@ -619,6 +708,9 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnNew;
-        private System.Windows.Forms.DateTimePicker date;
+        private System.Windows.Forms.DateTimePicker dtpData;
+        private System.Windows.Forms.Button btnPesquisa;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.DataGridView mpLista;
     }
 }

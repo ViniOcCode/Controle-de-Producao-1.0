@@ -22,13 +22,16 @@ namespace ControleProdForms.View
             InitializeComponent();
             AssociateAndRaiseViewEvents();
             tabControl1.TabPages.Remove(tabCadastro);
-            btnSair.Click += delegate { this.Close(); };
+            btnSair.Click += delegate { this.Close();};
             this.Shown += ProducaoView_Shown;
+            DataGrid.DataBindingComplete += (s, e) => DataGrid.ClearSelection();
+
         }
         private void ProducaoView_Shown(object sender, EventArgs e)
         {
-            FormatGridView(); // Chame o método aqui após o formulário ser exibido
+            FormatGridView();
         }
+
 
         private void AssociateAndRaiseViewEvents()
         {
@@ -51,16 +54,18 @@ namespace ControleProdForms.View
                 AdicionarEvento?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabMenu);
                 tabControl1.TabPages.Add(tabCadastro);
+                lblData.Text = dtpData.Text;
                 tabCadastro.Text = "Adicionar Nova Produção";
             };
             btnEdit.Click += delegate
             {
                 txtCodigo.Enabled = false;
                 btnNew.Enabled = false;
-                EditarEvento?.Invoke(this, EventArgs.Empty);
                 tabControl1.TabPages.Remove(tabMenu);
                 tabControl1.TabPages.Add(tabCadastro);
+                lblData.Text = dtpData.Text;
                 tabCadastro.Text = "Editar Produção";
+                EditarEvento?.Invoke(this, EventArgs.Empty);
             };
             btnSave.Click += delegate
             {
@@ -111,8 +116,8 @@ namespace ControleProdForms.View
         }
         public string PdData
         {
-            get { return date.Text; }
-            set { date.Text = value; }
+            get { return dtpData.Text; }
+            set { dtpData.Text = value; }
         }
         public string PdQuantidade
         {
@@ -145,6 +150,12 @@ namespace ControleProdForms.View
             get { return dgLista; }
         }
 
+        public DataGridView DataGridMp
+        {
+            get { return mpLista; }
+            set { mpLista = value;}
+        }
+
         public event EventHandler PesquisaEvento;
         public event EventHandler AdicionarEvento;
         public event EventHandler EditarEvento;
@@ -157,6 +168,12 @@ namespace ControleProdForms.View
         public void SetGridProducao(BindingSource pdLista)
         {
             DataGrid.DataSource = pdLista;
+            DataGrid.ClearSelection();
+        }
+
+        public void SetGridMatProd(BindingSource matProdLista)
+        {
+            DataGridMp.DataSource = matProdLista;
         }
 
         private void FormatGridView()
@@ -204,5 +221,27 @@ namespace ControleProdForms.View
             }
             return instance;
         }
+
+        private void lblData_Click(object sender, EventArgs e)
+        {
+            dtpData.Select();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void ProducaoView_Load(object sender, EventArgs e)
+        {
+            lblData.Text = dtpData.Text;
+        }
+
+        private void dtpData_ValueChanged(object sender, EventArgs e)
+        {
+            lblData.Text = dtpData.Text;
+        }
+
+        private void dgLista_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEdit.Enabled = true;
+        }
+
     }
 }

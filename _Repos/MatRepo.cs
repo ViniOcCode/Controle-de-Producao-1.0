@@ -34,6 +34,7 @@ namespace ControleProdForms._Repos
             }
         }
 
+
         public void DelMateria(int codigo)
         {
             using (var connection = new SQLiteConnection(connectionString))
@@ -76,7 +77,8 @@ namespace ControleProdForms._Repos
                 command.Connection = connection;
                 command.CommandText = @"SELECT 
                                         *
-                                        FROM materia_prima";
+                                        FROM materia_prima
+                                        ORDER BY mp_estoque DESC";
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
