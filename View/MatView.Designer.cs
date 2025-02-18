@@ -100,7 +100,6 @@
             this.btnConversor.TabIndex = 3;
             this.btnConversor.Text = "Conversao";
             this.btnConversor.UseVisualStyleBackColor = true;
-            this.btnConversor.Click += new System.EventHandler(this.btnConversor_Click);
             // 
             // panel5
             // 

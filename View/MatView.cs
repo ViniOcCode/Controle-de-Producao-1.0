@@ -153,13 +153,6 @@ namespace ControleProdForms.View
             }
             return instance;
         }
-
-        private void btnConversor_Click(object sender, EventArgs e)
-        {
-            ConversaoView conversaoView = new ConversaoView();
-            conversaoView.ShowDialog();
-        }
-
         private void dgLista_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnEdit.Enabled = true;

@@ -46,40 +46,39 @@ namespace ControleProdForms
 
 
                     string criaprodutomateriaprima = @"
-                        CREATE TABLE IF NOT EXISTS produto_materia_prima (
+                        CREATE TABLE IF NOT EXISTS producao_materiaprima (
                         pmp_pr_codigo INTEGER,
-                        pmp_mp_codigo INTEGER,  
+                        pmp_id INTEGER,
+                        pmp_mp_codigo INTEGER,
                         pmp_qtd REAL,
-                        pr_estoque INTEGER,
-                        PRIMARY KEY(pmp_pr_codigo, pmp_mp_codigo),
+                        pmp_data TEXT DEFAULT (datetime('now', 'localtime')),
                         FOREIGN KEY(pmp_pr_codigo) REFERENCES produtos(pr_codigo),
-                        FOREIGN KEY(pmp_mp_codigo) REFERENCES matewria_prima(mp_codigo)
+                        FOREIGN KEY(pmp_mp_codigo) REFERENCES materia_prima(mp_codigo)
                         );";
 
                     command = new SQLiteCommand(criaprodutomateriaprima, connection);
                     command.ExecuteNonQuery();
 
-                    string criaproducao = @"CREATE TABLE IF NOT EXISTS producao 
-                        (
-                        pd_pr_codigo INTEGER UNIQUE,
-                        pd_data TEXT,
-                        pd_codigo INTEGER PRIMARY KEY AUTOINCREMENT,
+                    string criaproducao = @"CREATE TABLE IF NOT EXISTS producao (
+                        pd_codigo INTEGER,
+                        pd_pr_codigo INTEGER,
+                        pd_data TEXT NOT NULL,
                         pd_qtd_produzida REAL,
+                        PRIMARY KEY(pd_pr_codigo, pd_codigo, pd_data)
                         FOREIGN KEY(pd_pr_codigo) REFERENCES produtos(pr_codigo)
-                        ); ";
+                        );";
 
                     command = new SQLiteCommand(criaproducao, connection);
                     command.ExecuteNonQuery();
 
-                    string criaproducaolog = @"CREATE TABLE IF NOT EXISTS producao_log 
-                        (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        log_pd_codigo INTEGER,
+                    string criaproducaolog = @"CREATE TABLE IF NOT EXISTS pproducao_log (
+                        log_id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    	log_pd_codigo INTEGER,
                         log_pd_data TEXT,
                         log_pd_qtd REAL,
-                        data_atualizacao TEXT DEFAULT (datetime('now','localtime')),
-                        FOREIGN KEY(log_pd_codigo) REFERENCES produtos(pr_codigo)
-                        ); ";
+                        data_atualizacao TEXT DEFAULT (datetime('now', 'localtime')),
+                    	FOREIGN KEY(log_pd_codigo) REFERENCES produtos(pr_codigo)
+                        );";
 
                     command = new SQLiteCommand(criaproducaolog, connection);
                     command.ExecuteNonQuery();
