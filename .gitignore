@@ -1,3 +1,22 @@
-./.vs
-./.vscode
-./.gitattributes
+# Visual Studio user state
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Build outputs
+[Bb]in/[Dd]ebug/
+[Bb]in/[Rr]elease/
+[Oo]bj/
+
+# Restored NuGet packages
+packages/
+
+# Test and coverage output
+TestResults/
+*.coverage
+*.coveragexml
+
+# Keep the demo database and interface assets under bin/Files.
+!bin/Files/
+!bin/Files/**
